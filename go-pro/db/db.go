@@ -1,11 +1,9 @@
 package db
 
 import (
-	addressClient "mvc-go/clients/address"
-	telephoneClient "mvc-go/clients/telephone"
-	userClient "mvc-go/clients/user"
+	userClient "go-pro/clients/user"
 
-	"mvc-go/model"
+	"go-pro/model"
 
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
@@ -19,9 +17,9 @@ var (
 
 func init() {
 	// DB Connections Paramters
-	DBName := "uccarqsoft"
+	DBName := "go_booking_db"
 	DBUser := "root"
-	DBPass := "1234"
+	DBPass := ""
 	//DBPass := os.Getenv("MVC_DB_PASS")
 	DBHost := "localhost"
 	// ------------------------
@@ -37,8 +35,6 @@ func init() {
 
 	// We need to add all CLients that we build
 	userClient.Db = db
-	addressClient.Db = db
-	telephoneClient.Db = db
 }
 
 func StartDbEngine() {
@@ -48,9 +44,7 @@ func StartDbEngine() {
 	// el GORM creo tablas dentro de la base de datos nuestra.
 
 	// las estructuras de las tablas que crea estan en la carpeta "model"
-	db.AutoMigrate(&model.User{})      // se basa en la estructura de model/user.go
-	db.AutoMigrate(&model.Address{})   // se basa en la estructura de model/adrdress.go
-	db.AutoMigrate(&model.Telephone{}) // se basa en la estructura de model/telephone.go
+	db.AutoMigrate(&model.User{}) // se basa en la estructura de model/user.go
 
 	log.Info("Finishing Migration Database Tables")
 }
