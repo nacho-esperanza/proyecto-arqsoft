@@ -6,6 +6,9 @@ import (
 	"go-pro/dto"
 	"go-pro/model"
 	e "go-pro/utils/errors"
+
+	"crypto/md5"
+	"encoding/hex"
 )
 
 // El servicio procesa los datos y realiza operaciones de negocios utilizando los datos proporcionados por el model.
@@ -103,11 +106,21 @@ func (s *userService) InsertUser(userDto dto.UserDto) (dto.UserDto, e.ApiError) 
 	user.Name = userDto.Name
 	user.LastName = userDto.Lastname
 	user.Email = userDto.Email
-	user.Password = userDto.Password
+	user.Password = hashMD5(userDto.Password) // Hashear la contraseña usando la función hashMD5
 
 	user = userCliente.InsertUser(user)
 
 	userDto.Id = user.Id
 
 	return userDto, nil
+}
+
+// FUNCION HASHMD5 PARA HASHEAR CONTRASEÑA Y QUE NO SE MUESTRE TAL CUAL EN LA BASE DE DATOS
+
+func hashMD5(password string) string {
+	hasher := md5.New()
+	hasher.Write([]byte(password))
+	hashedBytes := hasher.Sum(nil)
+	hashedPassword := hex.EncodeToString(hashedBytes)
+	return hashedPassword
 }
