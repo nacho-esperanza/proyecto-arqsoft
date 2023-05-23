@@ -10,7 +10,7 @@ function App() {
           Edit <code>src/App.js</code> and save to reload.
         </p>
         <a>
-        <input />
+        <input type="text" />
         <button>login</button>
 
         </a>
