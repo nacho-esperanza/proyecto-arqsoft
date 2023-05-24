@@ -10,8 +10,29 @@ function App() {
           Edit <code>src/App.js</code> and save to reload.
         </p>
         <a>
-        <input type="text" />
-        <button>login</button>
+          Hello
+        </a>
+        <a>
+          contraseña 
+        <input
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            name="password"
+            label="Password"
+            type="password"
+            id="password"
+          >
+          
+          </input>
+        <button
+        type="button"
+        fullWidth
+        variant="contained"
+        color="primary"
+        >login
+        </button>
 
         </a>
       </header>
