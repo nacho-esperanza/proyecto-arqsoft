@@ -18,6 +18,7 @@ type hotelServiceInterface interface {
 	GetHotelById(id int) (dto.HotelDto, e.ApiError)
 	GetHotels() (dto.HotelsDto, e.ApiError)
 	InsertHotel(hotelDto dto.HotelDto) (dto.HotelDto, e.ApiError)
+	AddHotelImage(hotelId int, imageDto dto.ImageDto) (dto.ImageDto, e.ApiError)
 }
 
 var (
@@ -111,4 +112,37 @@ func (s *hotelService) InsertHotel(hotelDto dto.HotelDto) (dto.HotelDto, e.ApiEr
 	hotelDto.Id = hotel.Id
 
 	return hotelDto, nil
+}
+
+// Funcion que inserta una imagen
+
+func (s *hotelService) AddHotelImage(hotelId int, imageDto dto.ImageDto) (dto.ImageDto, e.ApiError) {
+
+	hotel := hotelCliente.GetHotelById(hotelId)
+	if hotel.Id == 0 {
+		return dto.ImageDto{}, e.NewBadRequestApiError("hotel not found")
+	}
+
+	image := model.Image{
+		Url:     imageDto.Url,
+		HotelId: hotelId,
+	}
+
+	image = hotelCliente.AddHotelImage(image)
+
+	imageDto.Id = image.Id
+
+	return imageDto, nil
+	/*
+		var image model.Image
+
+		image.HotelId = hotelId
+		image.Url = imageDto.Url
+
+		image = hotelCliente.AddHotelImage(image)
+
+		imageDto.Id = image.Id
+
+		return imageDto, nil
+	*/
 }

@@ -9,7 +9,7 @@ import (
 
 var Db *gorm.DB
 
-func AddImage(image model.Image) model.Image {
+func AddHotelImage(image model.Image) model.Image {
 	result := Db.Create(&image)
 
 	if result.Error != nil {

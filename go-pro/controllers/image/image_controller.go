@@ -1,3 +1,4 @@
+/*
 package imageController
 
 import (
@@ -9,12 +10,14 @@ import (
 	"github.com/gin-gonic/gin"
 	log "github.com/sirupsen/logrus"
 )
-
+*/
 // El controller recibe un Get de un Image ID en donde verifica que ex
 // Se utiliza el objeto Dto.Image para transferir los datos ingresados por el usuario en view al service,
 // consulta en el model y si los encuentra devuelve un 200 OK con el resultado.
 
 // DTO TRANSPORTA DATOS SOLAMENTE
+
+/*
 
 func AddImage(c *gin.Context) {
 	log.Debug("Adding Image to hotel: " + c.Param("id"))
@@ -43,3 +46,5 @@ func AddImage(c *gin.Context) {
 	c.JSON(http.StatusCreated, hotelDto)
 
 }
+
+*/

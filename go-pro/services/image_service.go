@@ -1,5 +1,6 @@
 package services
 
+/*
 import (
 	hotelCliente "go-pro/clients/hotel"
 	imageCliente "go-pro/clients/image"
@@ -46,3 +47,4 @@ func (s *imageService) AddImage(imageDto dto.ImageDto) (dto.ImageDto, e.ApiError
 
 	return imageDto, nil
 }
+*/

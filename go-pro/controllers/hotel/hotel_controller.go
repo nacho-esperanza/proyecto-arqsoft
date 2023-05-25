@@ -6,6 +6,8 @@ import (
 	"net/http"
 	"strconv"
 
+	e "go-pro/utils/errors"
+
 	"github.com/gin-gonic/gin"
 	log "github.com/sirupsen/logrus"
 )
@@ -56,4 +58,52 @@ func HotelInsert(c *gin.Context) {
 	}
 
 	c.JSON(http.StatusCreated, hotelDto)
+}
+
+func AddHotelImage(c *gin.Context) {
+	// Obtener el ID del hotel de los parámetros de la URL
+	hotelId, err := strconv.Atoi(c.Param("hotelId"))
+	if err != nil {
+		apiError := e.NewBadRequestApiError("Invalid hotel Id")
+		c.JSON(apiError.Status(), apiError)
+		return
+	}
+
+	// Obtener los datos de la imagen del cuerpo de la solicitud
+	var imageDto dto.ImageDto
+	if err := c.ShouldBindJSON(&imageDto); err != nil {
+		apiError := e.NewBadRequestApiError("Invalid image data")
+		c.JSON(apiError.Status(), apiError)
+		return
+	}
+
+	// Agregar la imagen al hotel utilizando el servicio correspondiente
+	image, apiError := service.HotelService.AddHotelImage(hotelId, imageDto)
+	if apiError != nil {
+		c.JSON(apiError.Status(), apiError)
+		return
+	}
+
+	c.JSON(http.StatusOK, image)
+
+	/*var imageDto dto.ImageDto
+	err := c.BindJSON(&imageDto)
+
+	// Error Parsing json param
+	if err != nil {
+		log.Error(err.Error())
+		c.JSON(http.StatusBadRequest, err.Error())
+		return
+	}
+
+	id, _ := strconv.Atoi(c.Param("id"))
+	imageDto, er := service.HotelService.AddHotelImage(id, imageDto)
+	// Error del Insert
+	if er != nil {
+		c.JSON(er.Status(), er)
+		return
+	}
+
+	c.JSON(http.StatusCreated, imageDto)
+	*/
 }
