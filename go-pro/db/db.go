@@ -2,6 +2,7 @@ package db
 
 import (
 	hotelClient "go-pro/clients/hotel"
+	imageClient "go-pro/clients/image"
 	userClient "go-pro/clients/user"
 
 	"go-pro/model"
@@ -37,6 +38,7 @@ func init() {
 	// We need to add all CLients that we build
 	userClient.Db = db
 	hotelClient.Db = db
+	imageClient.Db = db
 }
 
 func StartDbEngine() {
@@ -48,6 +50,7 @@ func StartDbEngine() {
 	// las estructuras de las tablas que crea estan en la carpeta "model"
 	db.AutoMigrate(&model.User{})  // se basa en la estructura de model/user.go
 	db.AutoMigrate(&model.Hotel{}) // se basa en la estructura de model/hotel.go
+	db.AutoMigrate(&model.Image{}) // se basa en la estructura de model/image.go
 
 	log.Info("Finishing Migration Database Tables")
 }

@@ -12,7 +12,7 @@ var Db *gorm.DB
 func GetHotelById(id int) model.Hotel {
 	var hotel model.Hotel
 
-	Db.Where("Id = ?", id).First(&hotel)
+	Db.Where("Id = ?", id).Preload("Images").First(&hotel)
 	log.Debug("Hotel: ", hotel)
 
 	return hotel
@@ -22,6 +22,8 @@ func GetHotels() model.Hotels {
 	var hotels model.Hotels
 
 	// Recordar poner los preload para que traiga los datos de las tablas relacionadas
+
+	Db.Preload("Images").Find(&hotels)
 
 	Db.Find(&hotels)
 

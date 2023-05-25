@@ -17,6 +17,8 @@ type Hotel struct {
 	Air     bool `gorm:"type:bool;not null"`
 	Gym     bool `gorm:"type:bool;not null"`
 	Spa     bool `gorm:"type:bool;not null"`
+
+	Images Images `gorm:"foreignKey:HotelId"`
 }
 
 type Hotels []Hotel

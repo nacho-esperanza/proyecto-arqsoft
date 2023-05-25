@@ -17,6 +17,8 @@ type HotelDto struct {
 	Air     bool `json:"air"`
 	Gym     bool `json:"gym"`
 	Spa     bool `json:"spa"`
+
+	Images []ImageDto `json:"images"`
 }
 
 type HotelsDto []HotelDto
