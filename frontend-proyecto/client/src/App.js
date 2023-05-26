@@ -1,42 +1,27 @@
 import logo from './logo.svg';
 import './App.css';
 
+import React, {useEffect, useState} from "react";
+
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import Login from './pages/login';
+import Home from './pages/Home';
+import Lista from './pages/Lista';
+import Hotel from './pages/Hotel';
+
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a>
-          Hello
-        </a>
-        <a>
-          contraseña 
-        <input
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Password"
-            type="password"
-            id="password"
-          >
-          
-          </input>
-        <button
-        type="button"
-        fullWidth
-        variant="contained"
-        color="primary"
-        >login
-        </button>
 
-        </a>
-      </header>
-    </div>
+    <Router>
+        <Routes>
+          <Route path="/" element={<Home/>}></Route>
+          <Route path="/Lista" element={<Lista/>}></Route>
+          <Route path="/Lista/:id " element={<Hotel/>}></Route>
+          <Route path="/login" element={<Login/>}></Route>
+        </Routes>
+      </Router>
+
+    
   );
 }
 
