@@ -8,7 +8,11 @@ const Home = () => {
   return (
     <div>
       Home
+      <a href="/Login">
+        login
+      </a>
     </div>
+    
   );
 };
   
