@@ -7,8 +7,10 @@ import {useParams} from "react-router-dom";
 const Home = () => {
   return (
     <div>
+      <a>
       Home
-      <a href="/Login">
+      </a>
+      <a href="/login">
         login
       </a>
     </div>
