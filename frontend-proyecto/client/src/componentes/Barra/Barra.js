@@ -7,8 +7,7 @@ const Barra = () => {
         <span className="logo">SuperCool</span>
         <div className="NaveIt">
           <button className="NaveBo">Register</button>
-          <button className="NaveBo" href="/login">Login</button>
-          <a href="/login">este anda?</a>
+          <button className="NaveBo" onClick={() => window.location.href = '/login'}>Login</button>
         </div>
       </div>
     </div>
