@@ -1,4 +1,5 @@
 import React from "react";
+import Barra from "../componentes/Barra/Barra";
 
 import '../App.css';
 
@@ -7,10 +8,7 @@ import {useParams} from "react-router-dom";
 const Home = () => {
   return (
     <div>
-      Home
-      <a href="/Login">
-        login
-      </a>
+      <Barra />
     </div>
     
   );
