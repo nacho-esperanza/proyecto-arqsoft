@@ -2,6 +2,9 @@ package services
 
 import (
 	hotelCliente "go-pro/clients/hotel"
+	imageCliente "go-pro/clients/image"
+
+	"strconv"
 
 	"go-pro/dto"
 	"go-pro/model"
@@ -19,6 +22,7 @@ type hotelServiceInterface interface {
 	GetHotels() (dto.HotelsDto, e.ApiError)
 	InsertHotel(hotelDto dto.HotelDto) (dto.HotelDto, e.ApiError)
 	AddHotelImage(hotelId int, imageDto dto.ImageDto) (dto.ImageDto, e.ApiError)
+	GetHotelImagesById(hotelId string) (dto.ImagesDto, e.ApiError)
 }
 
 var (
@@ -31,6 +35,7 @@ func init() {
 
 func (s *hotelService) GetHotelById(id int) (dto.HotelDto, e.ApiError) {
 	hotel := hotelCliente.GetHotelById(id)
+
 	hotelDto := dto.HotelDto{}
 
 	if hotel.Id == 0 {
@@ -145,4 +150,37 @@ func (s *hotelService) AddHotelImage(hotelId int, imageDto dto.ImageDto) (dto.Im
 
 		return imageDto, nil
 	*/
+}
+
+// Funcion que muestra las imagenes de un hotel
+
+func (s *hotelService) GetHotelImagesById(hotelId string) (dto.ImagesDto, e.ApiError) {
+
+	id, err := strconv.Atoi(hotelId)
+	if err != nil {
+		// Manejar el error de conversión si hotelId no es un número válido
+		return dto.ImagesDto{}, e.NewBadRequestApiError("Invalid hotelId")
+	}
+
+	// Verificar si el hotel existe
+	hotel := hotelCliente.GetHotelById(id)
+	if hotel.Id == 0 {
+		return dto.ImagesDto{}, e.NewBadRequestApiError("hotel not found")
+	}
+
+	// Obtener las imágenes del hotel
+	images := imageCliente.GetHotelImagesById(id)
+
+	// Convertir las imágenes al DTO correspondiente
+	imagesDto := dto.ImagesDto{}
+	for _, image := range images {
+		imageDto := dto.ImageDto{
+			Id:      image.Id,
+			Url:     image.Url,
+			HotelId: image.HotelId,
+		}
+		imagesDto = append(imagesDto, imageDto)
+	}
+
+	return imagesDto, nil
 }

@@ -107,3 +107,42 @@ func AddHotelImage(c *gin.Context) {
 	c.JSON(http.StatusCreated, imageDto)
 	*/
 }
+
+func GetHotelImagesById(c *gin.Context) {
+
+	log.Debug("Hotel id to load: " + c.Param("hotelId"))
+
+	hotelId := c.Param("hotelId")
+	/*
+		hotelIdStr := c.Param("hotelId")
+		hotelId, _ := strconv.Atoi(hotelIdStr)
+		var imagesDto dto.ImagesDto*/
+
+	imagesDto, err := service.HotelService.GetHotelImagesById(hotelId) // se utiliza el userDto referenciandose del id
+
+	if err != nil {
+		c.JSON(err.Status(), err)
+		return
+	}
+	c.JSON(http.StatusOK, imagesDto)
+
+	/*
+		// Obtener el ID del hotel de los parámetros de la URL
+		hotelId, err := strconv.Atoi(c.Param("hotelId"))
+		if err != nil {
+			apiError := e.NewBadRequestApiError("Invalid hotel Id")
+			c.JSON(apiError.Status(), apiError)
+			return
+		}
+
+		// Llamar al servicio para obtener las imágenes del hotel
+		imagesDto, apiError := service.HotelService.GetHotelImagesById(hotelId)
+		if apiError != nil {
+			c.JSON(apiError.Status(), apiError)
+			return
+		}
+
+		// Devolver la respuesta con los DTO de las imágenes
+		c.JSON(http.StatusOK, imagesDto)
+	*/
+}
