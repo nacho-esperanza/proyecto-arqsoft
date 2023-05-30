@@ -1,19 +1,19 @@
 import React from "react";
 
-import '../App.css';
+import './login.css';
   
 const Login = () => {
   return (
-    <>
-        <div className="container center">
+    <div className="login">
+        <div className="container_center">
             <div  className="z-depth-3 y-depth-3 x-depth-3 grey green-text lighten-4 row" id="loginContainer">
             <br />
-                <div className='row input-field col s12'>
+                <div className="Username">
                     <input className='validate' type="text" name='username' id='email' required />
                     <label for='email'>Username</label>
                 </div>
             <div className='row'>
-                <div className='input-field col s12'>
+                <div className="password">
                     <input className='validate' type='password' name='password' id='password' required />
                     <label for='password'>Password</label>
                 </div>
@@ -31,30 +31,8 @@ const Login = () => {
         <br />
         <br />
     
-    <a>
-          contraseña 
-        <input
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Password"
-            type="password"
-            id="password"
-          >
-          
-          </input>
-        <button
-        type="button"
-        fullWidth
-        variant="contained"
-        color="primary"
-        >login
-        </button>
-
-        </a>
-        </>
+    
+        </div>
   );
 };
   

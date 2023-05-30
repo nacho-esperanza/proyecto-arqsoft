@@ -45,6 +45,7 @@
     border: none;
     padding: 10px;
     cursor: pointer;
+    border-radius: 20px;
   }
   
   .headerSearch {
@@ -64,6 +65,7 @@
   
   .headerIcon {
     color: lightgray;
+    text-size-adjust: 15px;
   }
   
   .headerSearchItem {
@@ -80,6 +82,7 @@
   .headerSearchText {
     color: lightgray;
     cursor: pointer;
+    
   }
   
   .date {
@@ -87,5 +90,3 @@
     top: 50px;
     z-index: 2;
   }
-  
-  

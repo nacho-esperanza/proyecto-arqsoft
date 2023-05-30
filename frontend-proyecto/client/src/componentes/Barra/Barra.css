@@ -8,7 +8,7 @@
   .NaveC{
     width: 100%;
     max-width: 1024px;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -24,4 +24,7 @@
     padding: 5px 10px;
     cursor: pointer;
     color: #000000;
+    background-color: white;
+    border-radius: 5px; 
+    border: 3px  solid #febb02;
   }

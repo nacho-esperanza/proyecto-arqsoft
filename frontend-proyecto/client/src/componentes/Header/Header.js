@@ -38,9 +38,17 @@ const Header = ({ type }) => {
         }
       >
         <div className="headerSearch">
-             
+
+
+        <div className="headerSearchItem">
+                <input
+                  type="text"
+                  placeholder="Where are you going?"
+                  className="headerSearchInput"
+                  onChange={(e) => setDestination(e.target.value)}
+                />
+              </div>
               <div className="headerSearchItem">
-                
                 <span
                   onClick={() => setOpenDate(!openDate)}
                   className="headerSearchText"
