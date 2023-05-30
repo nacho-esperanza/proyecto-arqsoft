@@ -50,7 +50,7 @@ func GetBookingsByDateRange(hotelId int, startDate time.Time, endDate time.Time)
 
 	return bookings
 }*/
-
+/*
 func GetBookingsByDateRange(hotelId int, startDate time.Time, endDate time.Time) int {
 	var count int
 	err := Db.Preload("Users").Preload("Hotels").Where("HotelId = ? AND StartDate >= ? AND EndDate <= ?", hotelId, startDate, endDate).Count(&count)
@@ -58,6 +58,21 @@ func GetBookingsByDateRange(hotelId int, startDate time.Time, endDate time.Time)
 		// Manejo de errores
 		log.Error("Error GetBookings", err)
 		return int(0)
+	}
+
+	log.Debug("Number of bookings: ", count)
+
+	return count
+}*/
+
+func GetBookingsByDateRange(hotelId int, startDate time.Time, endDate time.Time) int {
+	var count int
+
+	txn := Db.Model(&model.Bookings{}).Where("hotel_id = ? AND start_date >= ? AND end_date <= ?", hotelId, startDate, endDate).Count(&count)
+	if txn.Error != nil {
+		// Manejo de errores
+		log.Error("Error GetBookings", txn.Error)
+		return 100000
 	}
 
 	log.Debug("Number of bookings: ", count)
