@@ -138,7 +138,7 @@ func (s *bookingService) CreateBooking(bookingDto dto.BookingDto) (dto.BookingDt
 			hotelCliente.UpdateHotel(hotel)
 		} else {
 			// Sumar 1 a las habitaciones disponibles si la reserva deja de estar activa
-			hotel.Rooms -= 1
+			hotel.Rooms += 1
 
 			// Actualizar el hotel en la base de datos
 			hotelCliente.UpdateHotel(hotel)
