@@ -1,0 +1,18 @@
+.container_center {
+    width: 100%;
+    max-width: 1024px;
+    margin: 20px 30% 100px 45%;
+  }
+
+  .login{
+    background-color: #003580;
+    color: white;
+    justify-content: center;
+    position: relative;
+    
+  }
+
+  .Username, .password{
+    margin: 20px 0px 20px 15px;
+   
+  }

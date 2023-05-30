@@ -1,14 +1,15 @@
 import React from "react";
-import Barra from "../componentes/Barra/Barra";
+
 
 import '../App.css';
-
-import {useParams} from "react-router-dom";
+import Barra from "../componentes/Barra/Barra";
+import Header from "../componentes/Header/Header";
   
 const Home = () => {
   return (
     <div>
       <Barra />
+      <Header />
     </div>
     
   );

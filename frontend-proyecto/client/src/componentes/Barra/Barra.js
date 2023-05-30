@@ -4,7 +4,7 @@ const Barra = () => {
   return (
     <div className="NaveBa">
       <div className="NaveC">
-        <span className="logo">SuperCool</span>
+        <h2 className="logo">SuperCool</h2>
         <div className="NaveIt">
           <button className="NaveBo">Register</button>
           <button className="NaveBo" onClick={() => window.location.href = '/login'}>Login</button>
