@@ -1,6 +1,7 @@
 package db
 
 import (
+	bookingClient "go-pro/clients/booking"
 	hotelClient "go-pro/clients/hotel"
 	imageClient "go-pro/clients/image"
 	userClient "go-pro/clients/user"
@@ -39,6 +40,7 @@ func init() {
 	userClient.Db = db
 	hotelClient.Db = db
 	imageClient.Db = db
+	bookingClient.Db = db
 }
 
 func StartDbEngine() {
@@ -48,9 +50,10 @@ func StartDbEngine() {
 	// el GORM creo tablas dentro de la base de datos nuestra.
 
 	// las estructuras de las tablas que crea estan en la carpeta "model"
-	db.AutoMigrate(&model.User{})  // se basa en la estructura de model/user.go
-	db.AutoMigrate(&model.Hotel{}) // se basa en la estructura de model/hotel.go
-	db.AutoMigrate(&model.Image{}) // se basa en la estructura de model/image.go
+	db.AutoMigrate(&model.User{})    // se basa en la estructura de model/user.go
+	db.AutoMigrate(&model.Hotel{})   // se basa en la estructura de model/hotel.go
+	db.AutoMigrate(&model.Image{})   // se basa en la estructura de model/image.go
+	db.AutoMigrate(&model.Booking{}) // se basa en la estructura de model/booking.go
 
 	log.Info("Finishing Migration Database Tables")
 }

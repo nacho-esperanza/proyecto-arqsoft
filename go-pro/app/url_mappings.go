@@ -1,6 +1,7 @@
 package app
 
 import (
+	bookingController "go-pro/controllers/booking"
 	hotelController "go-pro/controllers/hotel"
 	userController "go-pro/controllers/user"
 
@@ -22,6 +23,11 @@ func mapUrls() {
 	// Images Mapping
 	router.GET("/hotel/:hotelId/images", hotelController.GetHotelImagesById)
 	router.POST("/hotel/:hotelId/image", hotelController.AddHotelImage)
+
+	// Bookings Mapping
+	router.GET("/booking/id/:id", bookingController.GetBookingById)
+	router.GET("/booking", bookingController.GetBookings)
+	router.POST("/booking", bookingController.CreateBooking)
 
 	log.Info("Finishing mappings configurations")
 }

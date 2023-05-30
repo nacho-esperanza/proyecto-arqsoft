@@ -9,6 +9,10 @@ type HotelDto struct {
 	Description string  `json:"description"`
 	Price       float32 `json:"price"`
 
+	// Cantidad de Habitaciones
+
+	Rooms int `json:"rooms"`
+
 	// Amenities
 
 	Parking bool `json:"parking"`

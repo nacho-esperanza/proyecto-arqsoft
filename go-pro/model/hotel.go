@@ -9,6 +9,10 @@ type Hotel struct {
 	Description string  `gorm:"type:varchar(255);not null"`
 	Price       float32 `gorm:"type:float;not null"`
 
+	// Cantidad de Habitaciones
+
+	Rooms int `gorm:"type:int;not null"`
+
 	// Amenities
 
 	Parking bool `gorm:"type:bool;not null"`

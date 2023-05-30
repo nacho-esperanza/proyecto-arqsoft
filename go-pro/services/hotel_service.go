@@ -49,6 +49,9 @@ func (s *hotelService) GetHotelById(id int) (dto.HotelDto, e.ApiError) {
 	hotelDto.Description = hotel.Description
 	hotelDto.Price = hotel.Price
 
+	// Habitaciones disponibles
+	hotelDto.Rooms = hotel.Rooms
+
 	// Amenities
 	hotelDto.Parking = hotel.Parking
 	hotelDto.Pool = hotel.Pool
@@ -77,6 +80,9 @@ func (s *hotelService) GetHotels() (dto.HotelsDto, e.ApiError) {
 		hotelDto.Description = hotel.Description
 		hotelDto.Price = hotel.Price
 
+		// Habitaciones disponibles
+		hotelDto.Rooms = hotel.Rooms
+
 		// Amenities
 		hotelDto.Parking = hotel.Parking
 		hotelDto.Pool = hotel.Pool
@@ -103,6 +109,9 @@ func (s *hotelService) InsertHotel(hotelDto dto.HotelDto) (dto.HotelDto, e.ApiEr
 	hotel.Stars = hotelDto.Stars
 	hotel.Description = hotelDto.Description
 	hotel.Price = hotelDto.Price
+
+	// Habitaciones disponibles
+	hotel.Rooms = hotelDto.Rooms
 
 	// Amenities
 	hotel.Parking = hotelDto.Parking
