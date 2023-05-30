@@ -1,6 +1,6 @@
 .NaveBa{
     height: 50px;
-    background-color: #386800;
+    background-color: #197dff;
     display: flex;
     justify-content: center;
   }
@@ -23,5 +23,5 @@
     border: none;
     padding: 5px 10px;
     cursor: pointer;
-    color: #355d94;
+    color: #000000;
   }
