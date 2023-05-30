@@ -89,6 +89,63 @@ func (s *bookingService) CreateBooking(bookingDto dto.BookingDto) (dto.BookingDt
 	// Guardar el booking en la base de datos
 	createdBooking := bookingCliente.CreateBooking(booking)
 
+	/*
+
+		// PREGUNTAR ESTO
+
+	*/
+	/*
+		// Obtener la fecha actual
+		now := time.Now()
+
+		// Verificar si la fecha actual está dentro del rango de fechas de la reserva
+		IsActive := now.After(createdBooking.StartDate) && now.Before(createdBooking.EndDate)
+
+		// Actualizar el número de habitaciones disponibles en el hotel si la reserva está activa
+		if createdBooking.Id != 0 && IsActive {
+			hotel.Rooms -= 1
+			hotelCliente.UpdateHotel(hotel)
+		}
+	*/
+
+	/*
+
+		// Obtener la fecha actual
+		now := time.Now()
+
+		// Creo booleano IsActive
+
+		// Inicializar IsActive en false por defecto
+		IsActive := false
+
+		// Verificar si la fecha actual está dentro del rango de fechas de la reserva
+		if now.After(createdBooking.StartDate) && now.Before(createdBooking.EndDate) {
+			// La reserva está activa si la fecha actual está después de la fecha de inicio
+			// y antes de la fecha de fin
+			IsActive = true
+		} else {
+			// La reserva no está activa si la fecha actual está fuera del rango de fechas
+			IsActive = false
+		}
+
+		// Actualizar el número de habitaciones disponibles en el hotel
+		if createdBooking.Id != 0 && IsActive {
+
+			// Restar 1 a las habitaciones disponibles si la reserva está activa
+			hotel.Rooms -= 1
+
+			// Actualizar el hotel en la base de datos
+			hotelCliente.UpdateHotel(hotel)
+		} else {
+			// Sumar 1 a las habitaciones disponibles si la reserva deja de estar activa
+			hotel.Rooms -= 1
+
+			// Actualizar el hotel en la base de datos
+			hotelCliente.UpdateHotel(hotel)
+		}
+
+	*/
+
 	// Crear el DTO de respuesta
 	responseDto := dto.BookingDto{
 		Id:         createdBooking.Id,

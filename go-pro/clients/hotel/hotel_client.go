@@ -63,3 +63,12 @@ func GetHotelImagesById(hotelId int) model.Images {
 	log.Debug("Images: ", images)
 	return images
 }
+
+func UpdateHotel(hotel model.Hotel) error {
+	err := Db.Model(&hotel).Update("Rooms", hotel.Rooms).Error
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
