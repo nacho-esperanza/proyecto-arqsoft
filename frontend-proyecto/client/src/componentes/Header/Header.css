@@ -1,12 +1,10 @@
 .header {
     background-color: #003580;
-    color: white;
     display: flex;
     justify-content: center;
     background-image: url(/public/Fondo_home.jpg);
     background-size: cover;
     background-Repeat: no-repeat;
-    background-size: 100%, 10px;
     
   }
   
@@ -14,11 +12,11 @@
     position: relative;
     width: 100%;
     max-width: 1024px;
-    margin: 50% 0px 100% 0px;
+    margin: 50% 0px 0px 0px;
   }
   
   .headerContainer.listMode {
-    margin: 20px 0px 0px 0px;
+    margin: 50% 0px 50px 0px;
   }
   
   .headerList {
@@ -63,7 +61,7 @@
     padding: 10px 0px;
     border-radius: 5px;
     position: absolute;
-    bottom: 25%;
+    bottom: -50%;
     width: 100%;
     max-width: 1024px;
   }
