@@ -1,6 +1,6 @@
 .NaveBa{
     height: 50px;
-    background-color: #197dff;
+    background-color: #ffffff;
     display: flex;
     justify-content: center;
   }
@@ -16,6 +16,7 @@
   
   .logo{
     font-weight: 500;
+    color: #000000;
   }
   
   .NaveBo{
@@ -26,5 +27,5 @@
     color: #000000;
     background-color: white;
     border-radius: 5px; 
-    border: 3px  solid #febb02;
+    border: 1px  solid #ffbb00;
   }

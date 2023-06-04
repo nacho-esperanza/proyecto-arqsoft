@@ -3,13 +3,18 @@
     color: white;
     display: flex;
     justify-content: center;
-    position: relative;
+    background-image: url(/public/Fondo_home.jpg);
+    background-size: cover;
+    background-Repeat: no-repeat;
+    background-size: 100%, 10px;
+    
   }
   
   .headerContainer {
+    position: relative;
     width: 100%;
     max-width: 1024px;
-    margin: 20px 0px 100px 0px;
+    margin: 50% 0px 100% 0px;
   }
   
   .headerContainer.listMode {
