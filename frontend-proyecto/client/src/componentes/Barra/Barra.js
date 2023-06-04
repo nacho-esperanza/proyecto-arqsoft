@@ -6,7 +6,7 @@ const Barra = () => {
       <div className="NaveC">
         <h2 className="logo">Hoteles kicillof</h2>
         <div className="NaveIt">
-          <button className="NaveBo">Registrar</button>
+          <button className="NaveBo"  onClick={() => window.location.href = '/frontend-proyecto/client/src/pages/SignUp.js'}>Registrar</button>
           <button className="NaveBo" onClick={() => window.location.href = '/login'}>Iniciar sesion</button>
         </div>
       </div>

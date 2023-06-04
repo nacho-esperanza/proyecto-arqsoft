@@ -1,13 +1,13 @@
-import logo from './logo.svg';
 import './App.css';
 
-import React, {useEffect, useState} from "react";
+import React, {} from "react";
 
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Login from './pages/login';
 import Home from './pages/Home';
 import Lista from './pages/Lista';
 import Hotel from './pages/Hotel';
+import SignUp from './pages/SignUp';
 
 function App() {
   return (
