@@ -4,7 +4,7 @@ const Barra = () => {
   return (
     <div className="NaveBa">
       <div className="NaveC">
-        <h2 className="logo">Hoteles kicillof</h2>
+        <h1 className="logo">Caminos del Viento</h1>
         <div className="NaveIt">
           <button className="NaveBo"  onClick={() => window.location.href = '/signup'}>Registrar</button>
           <button className="NaveBo" onClick={() => window.location.href = '/login'}>Iniciar sesion</button>

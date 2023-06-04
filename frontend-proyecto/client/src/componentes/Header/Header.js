@@ -2,7 +2,6 @@
 import "./Header.css"
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
 import { DateRange } from "react-date-range";
 import { format } from "date-fns";
 import "react-date-range/dist/styles.css"; // main css file
