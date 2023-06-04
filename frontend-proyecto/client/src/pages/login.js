@@ -5,25 +5,37 @@ import './login.css';
 const Login = () => {
   return (
     <div className="login">
+       
+           <h1>Caminos del Viento</h1> 
+
+        
+       
         <div className="container_center">
             <div  className="z-depth-3 y-depth-3 x-depth-3 grey green-text lighten-4 row" id="loginContainer">
             <br />
+
+            <h2>Iniciar Sesion</h2>
+
                 <div className="Username">
-                    <input className='validate' type="text" name='username' id='email' required />
-                    <label for='email'>Username</label>
+                    <input  className='validate' type="text" name='username' placeholder="Nombre de Usuario" id='email' required />
+                  
                 </div>
             <div className='row'>
                 <div className="password">
-                    <input className='validate' type='password' name='password' id='password' required />
-                    <label for='password'>Password</label>
+                    <input className='validate' type="password" name='password' placeholder="Contraseña" id='password' required />
+                   <script>
+                        
+                   </script>
                 </div>
                 <label id="forgotPasswordLabel" className="text-black">
-                <a id="forgotPasswordText" href="/#">Forgot Password?</a>
+                <a id="forgotPasswordText" href="/#">Restablecer Contraseña</a>
                 </label>
             </div>
             <br />
             <div className='row'>
-                <button id="loginButton" type='submit' name='btn_login' className='col s6 btn btn-small white black-text  waves-effect z-depth-1 y-depth-1'>Login</button>
+                <button class="botom_login" id="loginButton" type='submit' name='btn_login'>Iniciar</button>
+                <p>No tienes Usuario registrate:</p>
+                <button class="botom_SingUp" id="SingUPButton" type='submit' name='SingUp_login'>Registrarse</button>
             </div>
             <br/>
             </div>
