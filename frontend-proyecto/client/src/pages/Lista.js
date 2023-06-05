@@ -6,7 +6,7 @@ const Lista = () => {
   return (
     <div>
     hoteles
-    <button onClick={() => window.location.href = '/Hotel.js'}>Este si!</button>
+    <button onClick={() => window.location.href = 'lista/hotel'}>Este si!</button>
     </div>
   );
 };

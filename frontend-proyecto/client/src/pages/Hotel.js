@@ -1,6 +1,6 @@
 import React from "react";
 
-import './Home.css';  
+import './Hotel.css';  
 const Hotel = () => {
   return (
     <div className="home-container">
