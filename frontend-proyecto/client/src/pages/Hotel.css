@@ -1,0 +1,50 @@
+.home-container {
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .menu_titulo {
+    grid-row: 1;
+    grid-column: 1 / -1;
+    background-color: #5086cc;
+    color: white;
+    padding: 10px;
+  }
+  
+  .nombre_hotel {
+    grid-row: 2;
+    grid-column: 1 / -1;
+    background-color:aqua ;
+    padding: 10px;
+  }
+  
+  .hotel_descripcion {
+    grid-row: 3;
+    grid-column: 1;
+    background-color: #aa4444;
+    padding: 10px;
+  }
+  
+  .hotel_img {
+    grid-row: 3;
+    grid-column: 2;
+    background-color: #22963b;
+    padding: 10px;
+  }
+  
+  .hotel_caracteristica {
+    grid-row: 4;
+    grid-column: 1 / -1;
+    background-color: #9430a8;
+    padding: 10px;
+  }
+  
+  .hotel_Precio {
+    grid-row: 5;
+    grid-column: 1;
+    background-color: #d8c72f;
+    padding: 10px;
+  }
