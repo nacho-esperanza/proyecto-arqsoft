@@ -39,6 +39,7 @@ const SignUp = () => {
 <p>Ya tengo Usuario</p>
 
 <button type="submit" onClick={() => window.location.href = '/login'}>Iniciar Sesion</button>
+<button onClick={() => window.location.href = '/#'}>Back</button>
 
     </div>
 </div>
