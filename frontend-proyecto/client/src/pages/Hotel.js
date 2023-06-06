@@ -1,14 +1,18 @@
-import React from "react";
+import React, {useEffect, useState } from "react";
 import axios from "axios";
 
+import {useParams} from "react-router-dom";
 import './Hotel.css';  
 
 const Hotel = () => {
-
+const[hotel,setHotel]= useState([{}]);
+setHotel(undefined);
+let {id} = useParams();
   const GetHotelByid = async (id) => {
     try {
-      const response = await axios.get(`/user/:id`);
+      const response = await axios.get(`/hotel/id/:id`);
       console.log(response.data); 
+      setHotel(response.data);
     } catch (error) {
       console.error(error);
     }
@@ -19,8 +23,11 @@ const Hotel = () => {
     
     
     <div className="menu_titulo">
-    <p>$id{ }</p>
-    <h1>Caminos del Viento</h1>
+    
+    {typeof hotel === 'undefined' ? (
+        <h3>Loading...</h3>
+      ) : (
+    <h1> hotel["name"]</h1>)}
 
     </div>
 
