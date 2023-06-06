@@ -169,6 +169,7 @@ func (s *userService) LoginUser(loginDto dto.LoginDto) (dto.TokenDto, e.ApiError
 
 	//comparar contraseñas
 
+	// hacer parse token
 	if pswMd5 == user.Password {
 		//se firma el token para verificar autenticidad
 		token := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{

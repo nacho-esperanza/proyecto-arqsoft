@@ -1,0 +1,69 @@
+.home-container {
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 20px;
+    background-image: linear-gradient(to bottom right, rgba(206, 195, 132, 0.377), rgba(255, 245, 196, 0.8)), url('https://images7.alphacoders.com/368/368326.jpg');
+    background-size: cover;
+    z-index: -1;
+  }
+
+  .button{
+    align-items: center;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    
+  }
+  
+  .menu_titulo {
+    grid-row: 1;
+    grid-column: 1 / -1;
+    background-color:#eaeff5d8;
+    color: white;
+    padding: 10px;
+  }
+  
+  .nombre_hotel {
+    grid-row: 2;
+    grid-column: 1 / -1;
+    background-color:  #eaeff5d8;
+    padding: 10px;
+  }
+  
+  .hotel_descripcion {
+    grid-row: 3;
+    grid-column: 1;
+    background-color:#eaeff5d8;
+    padding: 10px;
+  }
+  
+  .hotel_img {
+    grid-row: 3;
+    grid-column: 2;
+    background-color: #22963b;
+    padding: 10px;
+  }
+  
+  .hotel_caracteristica {
+    grid-row: 4;
+    grid-column: 1;
+    background-color:#eaeff5d8;
+    padding: 10px;
+  }
+  
+  .hotel_Precio {
+    grid-row: 4;
+    grid-column: 2;
+    background-color:#eaeff5d8;
+    padding: 10px;
+  }
+
+
+  @media screen and (max-width: 768px) {
+    .home-container {
+      grid-template-rows: auto auto auto auto auto;
+      grid-template-columns: 1fr;
+    }
+  }

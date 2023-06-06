@@ -1,0 +1,83 @@
+body {
+
+  font-family: 'Lato', sans-serif;
+  
+}
+
+
+.signup-container-1::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(to bottom right, rgba(206, 195, 132, 0.377), rgba(255, 245, 196, 0.8)), url('https://www.lugaresdenieve.com/sites/default/files/estaciones/valle-nevado_22.jpg');
+  background-size: cover;
+  z-index: -1;
+}
+
+h1{
+  letter-spacing: 2px;
+  font-size: 45px;
+  text-align: center;
+  color: #333; 
+text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); 
+}
+
+.signup-container {
+  width: 500px; 
+  height: 500px; 
+  margin:auto; 
+  text-align: center; 
+  vertical-align: middle; 
+  padding: 25px;
+  background-color: #5086cc;
+  color: white;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  input {
+    margin-bottom: 10px;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  button {
+    background-color: #f5a835;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease;
+    animation: pulsar 1s initial;
+  }
+  
+  @keyframes pulsar {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
