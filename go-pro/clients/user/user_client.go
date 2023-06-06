@@ -18,6 +18,15 @@ func GetUserById(id int) model.User {
 	return user
 }
 
+func GetUserByEmail(Email string) model.User {
+	var user model.User
+
+	Db.Where("email = ?", Email).First(&user)
+	log.Debug("User: ", user)
+
+	return user
+}
+
 func GetUsers() model.Users {
 	var users model.Users
 
