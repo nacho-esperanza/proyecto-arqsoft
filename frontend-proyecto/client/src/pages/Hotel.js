@@ -1,13 +1,25 @@
 import React from "react";
+import axios from "axios";
 
 import './Hotel.css';  
+
 const Hotel = () => {
+
+  const GetHotelByid = async (id) => {
+    try {
+      const response = await axios.get(`/user/:id`);
+      console.log(response.data); 
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div className="home-container">
     
     
     <div className="menu_titulo">
-    <p>Username</p>
+    <p>$id{ }</p>
     <h1>Caminos del Viento</h1>
 
     </div>
