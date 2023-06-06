@@ -84,7 +84,7 @@ func (s *bookingService) CreateBooking(bookingDto dto.BookingDto) (dto.BookingDt
 	fmt.Println(fmt.Sprintf("Total rooms: %d vs Available: %d vs Bookings: %d", hotel.Rooms, cantAvailable, cantBookings))
 
 	if cantAvailable <= 0 {
-		return dto.BookingDto{}, e.NewBadRequestApiError("Hotel has no available rooms")
+		return dto.BookingDto{}, e.NewBadRequestApiError("Hotel has no available rooms amigo")
 	}
 
 	// totalPrice := int(hotel.Price * float64(endDate.Sub(startDate).Hours()/24))
