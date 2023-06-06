@@ -105,18 +105,26 @@ func (s *userService) GetUsers() (dto.UsersDto, e.ApiError) {
 
 func (s *userService) InsertUser(userDto dto.UserDto) (dto.UserDto, e.ApiError) {
 
-	var user model.User
+	log.Debug(userDto) // Imprimir en consola el userDto ingresado
+	var user model.User = userCliente.GetUserByEmail(userDto.Email)
 
-	user.Name = userDto.Name
-	user.LastName = userDto.Lastname
-	user.Email = userDto.Email
-	user.Password = hashMD5(userDto.Password) // Hashear la contraseña usando la función hashMD5
+	// PREGUNTAR A EMI SI HACE FALTA EL TOKEN O NO EN ESTA FUNCION
 
-	user = userCliente.InsertUser(user)
+	if user.Id == 0 { // Si el usuario no existe, crearlo
 
-	userDto.Id = user.Id
+		user.Name = userDto.Name
+		user.LastName = userDto.Lastname
+		user.Email = userDto.Email
+		user.Password = hashMD5(userDto.Password) // Hashear la contraseña usando la función hashMD5
 
-	return userDto, nil
+		user = userCliente.InsertUser(user)
+
+		userDto.Id = user.Id
+
+		return userDto, nil
+	} else { // Si el usuario ya existe, devolver error
+		return userDto, e.NewBadRequestApiError("email already registered")
+	}
 }
 
 // FUNCION HASHMD5 PARA HASHEAR CONTRASEÑA Y QUE NO SE MUESTRE TAL CUAL EN LA BASE DE DATOS
