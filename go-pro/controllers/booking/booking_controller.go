@@ -37,6 +37,21 @@ func GetBookings(c *gin.Context) {
 	c.JSON(http.StatusOK, bookingsDto)
 }
 
+func GetBookingsByUserId(c *gin.Context) {
+
+	userId, _ := strconv.Atoi(c.Param("userId"))
+	log.Debug("User id to load: " + c.Param("userId"))
+	var bookingsDto dto.BookingsDto
+	bookingsDto, err := service.BookingService.GetBookingsByUserId(userId)
+
+	if err != nil {
+		c.JSON(err.Status(), err)
+		return
+	}
+
+	c.JSON(http.StatusOK, bookingsDto)
+}
+
 func CreateBooking(c *gin.Context) {
 	var bookingDto dto.BookingDto
 	err := c.BindJSON(&bookingDto)

@@ -28,6 +28,7 @@ func mapUrls() {
 	// Bookings Mapping
 	router.GET("/booking/id/:id", bookingController.GetBookingById)
 	router.GET("/booking", bookingController.GetBookings)
+	router.GET("/booking/user/:userId", bookingController.GetBookingsByUserId)
 	router.POST("/booking", bookingController.CreateBooking)
 
 	log.Info("Finishing mappings configurations")

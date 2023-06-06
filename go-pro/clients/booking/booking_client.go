@@ -88,3 +88,14 @@ func GetBookingsByDateRange(hotelId int, startDate time.Time, endDate time.Time)
 
 	return count
 }*/
+
+// funcion que devuelve las reservas de un usuario
+
+func GetBookingsByUserId(userId int) []model.Booking {
+	var bookings []model.Booking
+	// Db.Raw("SELECT * FROM bookings WHERE user_id = ?", userId).Scan(&bookings)  // esto es lo mismo que la linea de abajo PERO EN SQL
+	Db.Preload("Users").Preload("Hotels").Where("user_id = ?", userId).Find(&bookings)
+	log.Debug("Bookings: ", bookings)
+
+	return bookings
+}

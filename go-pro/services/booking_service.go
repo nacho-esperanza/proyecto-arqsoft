@@ -22,6 +22,7 @@ type bookingServiceInterface interface {
 	GetBookingById(id int) (dto.BookingDto, e.ApiError)
 	GetBookings() (dto.BookingsDto, e.ApiError)
 	CreateBooking(bookingDto dto.BookingDto) (dto.BookingDto, e.ApiError)
+	GetBookingsByUserId(userId int) (dto.BookingsDto, e.ApiError)
 }
 
 var (
@@ -84,7 +85,7 @@ func (s *bookingService) CreateBooking(bookingDto dto.BookingDto) (dto.BookingDt
 	fmt.Println(fmt.Sprintf("Total rooms: %d vs Available: %d vs Bookings: %d", hotel.Rooms, cantAvailable, cantBookings))
 
 	if cantAvailable <= 0 {
-		return dto.BookingDto{}, e.NewBadRequestApiError("Hotel has no available rooms amigo")
+		return dto.BookingDto{}, e.NewBadRequestApiError("Hotel has no available rooms")
 	}
 
 	// totalPrice := int(hotel.Price * float64(endDate.Sub(startDate).Hours()/24))
@@ -193,3 +194,23 @@ func (s *bookingService) GetBookings() (dto.BookingsDto, e.ApiError) {
 	}
 
 */
+
+func (s *bookingService) GetBookingsByUserId(userId int) (dto.BookingsDto, e.ApiError) {
+	bookings := bookingCliente.GetBookingsByUserId(userId)
+
+	bookingsDto := dto.BookingsDto{}
+
+	for _, booking := range bookings {
+		bookingDto := dto.BookingDto{
+			Id:         booking.Id,
+			HotelId:    booking.HotelId,
+			UserId:     booking.UserId,
+			StartDate:  booking.StartDate,
+			EndDate:    booking.EndDate,
+			TotalPrice: booking.TotalPrice,
+		}
+		bookingsDto.Bookings = append(bookingsDto.Bookings, bookingDto)
+	}
+
+	return bookingsDto, nil
+}
