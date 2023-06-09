@@ -2,7 +2,7 @@ import { lazy } from "react";
 import Home from "pages/Home.jsx"
 import Lista from "pages/Lista.jsx";
 import Login from "pages/Login.jsx";
-import SingUp from "pages/SignUp.jsx";
+import SignUp from "pages/SignUp.jsx";
 import Hotel from "pages/Hotel.jsx";
 
 
@@ -22,8 +22,8 @@ export const navigation = [
     },
     {
         id: 2,
-        path: `/singup`,
-        Element: SingUp,
+        path: `/signup`,
+        Element: SignUp,
     },
     {
         id: 3,

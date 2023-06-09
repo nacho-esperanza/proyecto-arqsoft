@@ -9,7 +9,7 @@ const Login = () => {
     const [email, setEmail] = useState(''); //se inicializan las variables vacias
     const [password, setPassword] = useState('');
     const register = () =>{ // funbcion que te redirige a  register
-      navigate("/register");
+      navigate("/signup");
     };
     const handleSubmit = async (e) => { //recibe los datos del formulario
         e.preventDefault(); // para que no recarga la página
@@ -21,7 +21,7 @@ const Login = () => {
         }
         else{
             try {   //envía la respuesta al back (postaman basicamente)
-                const response = await fetch('http://localhost:8090/login', {
+                const response = await fetch('http://localhost:8090/user/login', {
                     method: 'POST', headers: {
                         'Content-Type': 'application/json',
                     },
@@ -86,9 +86,9 @@ const Login = () => {
               <div className='row'>
                   <button className="botom_login" id="loginButton" type='submit' name='btn_login'>Iniciar</button>
                   <p>No tienes Usuario registrate:</p>
-                  <button className="botom_SingUp" id="SingUPButton" type='submit' name='SingUp_login' onClick={() => window.location.href = '/signup'}>Registrarse</button>
+                  <button className="botom_SingUp" id="SingUPButton" type='submit' name='SignUp_login' onClick={() => navigate("/signup") /*window.location.href = '/signup'*/}>Registrarse</button>
                   <p></p>
-                  <button className="botom_SingUp" name='SingUp_login' onClick={() => window.location.href = '/#'}>Back</button>
+                  <button className="botom_SingUp" name='SignUp_login' onClick={() => window.location.href = '/home'}>Back</button>
               </div>
               </form>
               <br/>
