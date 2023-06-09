@@ -102,7 +102,7 @@ const SignUp = () => {
         <button type="submit" onClick={() => window.location.href = '/login'}>
           Iniciar Sesión
         </button>
-        <button onClick={() => window.location.href = '/#'}>Back</button>
+        <button onClick={() => window.location.href = '/'}>Back</button>
       </div>
     </div>
   );

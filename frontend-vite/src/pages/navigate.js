@@ -32,7 +32,7 @@ export const navigation = [
     },
     {
         id: 4,
-        path: `/hotel/'${id}`,
+        path: `/hotel/:id`,
         Element: Hotel,
     },
 ];
