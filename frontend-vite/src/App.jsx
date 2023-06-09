@@ -12,11 +12,12 @@ import Lista from './pages/Lista.jsx';
 import Hotel from './pages/Hotel.jsx';
 import SignUp from './pages/SignUp.jsx';
 
+// Saque <Header /> para que no se vea en todas las paginas.
+
 function App() {
   return (
 
     <Router>
-      <Header />
         <Barra />
         <Routes>
         

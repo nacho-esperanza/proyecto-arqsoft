@@ -8,12 +8,12 @@ import Header from "../componentes/Header/Header";
 
 const Home = () => {
     return (
-      <div class="Planas">
+      <div className="Planas">
         <Barra />
         <Header />
       </div>
       
     );
-  };
+  };  
     
   export default Home;
