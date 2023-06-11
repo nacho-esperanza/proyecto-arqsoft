@@ -80,6 +80,7 @@ import './Hotel.css';
 const Hotel = () => {
   const { id } = useParams();
   const [hotel, setHotel] = useState(null);
+  const [images, setImages] = useState([]);
 
   // hotelsdata.map (repite todo el array de hoteles)
 
@@ -94,8 +95,21 @@ const Hotel = () => {
       }
     };
 
+    const fetchImages = async () => {
+      try {
+        const response = await fetch(`http://localhost:8090/hotel/${id}/images/`);
+        const data = await response.json();
+        setImages(data);
+        console.log(images)
+      } catch (error) {
+        console.log('Error al obtener las imágenes del hotel:', error);
+      }
+    };
+
+    fetchImages();
     fetchHotel();
   }, [id]);
+  
 
   if (!hotel) {
     return <div>Cargando hotel...</div>;
@@ -114,17 +128,21 @@ const Hotel = () => {
         <p>{hotel.description}</p>
       </div>
 
-      <div className="hotel_img">Imagen del Hotel</div>
+      <div className="hotel_img">
+        {images && images.map((image, index) => (
+          <img src={image.url} alt={`Imagen ${index}`} key={index} />
+        ))}
+      </div>
 
       <div className="hotel_caracteristica">
         Características del Hotel:
         <ul>
-          <li>Parking: {hotel.parking}</li>
-          <li>Pool: {hotel.pool}</li>
-          <li>Wifi: {hotel.wifi}</li>
-          <li>Aire: {hotel.air}</li>
-          <li>Gym: {hotel.gym}</li>
-          <li>Spa: {hotel.spa}</li>
+          <li>Parking: {hotel.parking ? 'Incluye' : 'No Incluye'}</li>
+          <li>Pool: {hotel.pool ? 'Incluye' : 'No Incluye'}</li>
+          <li>Wifi: {hotel.wifi ? 'Incluye' : 'No Incluye'}</li>
+          <li>Aire: {hotel.air ? 'Incluye' : 'No Incluye'}</li>
+          <li>Gym: {hotel.gym ? 'Incluye' : 'No Incluye'}</li>
+          <li>Spa: {hotel.spa ? 'Incluye' : 'No Incluye'}</li>
         </ul>
       </div>
       <div className="hotel_Precio">

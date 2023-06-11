@@ -88,7 +88,7 @@ const Login = () => {
                   <p>No tienes Usuario registrate:</p>
                   <button className="botom_SingUp" id="SingUPButton" type='submit' name='SignUp_login' onClick={() => navigate("/signup") /*window.location.href = '/signup'*/}>Registrarse</button>
                   <p></p>
-                  <button className="botom_SingUp" name='SignUp_login' onClick={() => window.location.href = '/home'}>Back</button>
+                  <button className="botom_SingUp" name='SignUp_login' onClick={() => window.location.href = '/'}>Back</button>
               </div>
               </form>
               <br/>
