@@ -128,6 +128,8 @@ const Hotel = () => {
         <p>{hotel.description}</p>
       </div>
 
+
+      // ARREGLEN LAS IMAGENES POR FAVOR
       <div className="hotel_img">
         {images && images.map((image, index) => (
           <img src={image.url} alt={`Imagen ${index}`} key={index} />

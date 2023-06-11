@@ -12,7 +12,13 @@ var (
 
 func init() {
 	router = gin.Default()
-	router.Use(cors.Default())
+
+	// Configurar CORS
+	config := cors.DefaultConfig()
+	config.AllowAllOrigins = true
+	config.AllowCredentials = true
+	config.AddAllowHeaders("Authorization")
+	router.Use(cors.New(config))
 }
 
 func StartRoute() {
@@ -20,5 +26,4 @@ func StartRoute() {
 
 	log.Info("Starting server")
 	router.Run(":8090")
-
 }
