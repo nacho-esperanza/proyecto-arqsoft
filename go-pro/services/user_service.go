@@ -60,6 +60,7 @@ func (s *userService) GetUserById(id int) (dto.UserDetailDto, e.ApiError) {
 
 	userDetailDto.Name = user.Name
 	userDetailDto.Lastname = user.LastName
+	userDetailDto.Email = user.Email
 
 	return userDetailDto, nil
 }

@@ -43,14 +43,28 @@ const Login = () => {
                     // Guardamos el id del usuario en el localStorage
                     localStorage.setItem("user_id", response.id_user);
 
+                    await fetch (`http://localhost:8090/user/${response.id_user}`, {
+                        headers: {
+                            Authorization: `Bearer ${localStorage.getItem('token')}`, // Agrega el token de autenticación en los headers
+                        },
+                    }).then(response => response.json())
+                    .then(data => {
+                        console.log(data)
+                        localStorage.setItem("user_name", data.name);
+                        localStorage.setItem("user_email", data.email);
+                    });
+
+                    
+
                     // Verificamos si el usuario es admin
-                    if (response.email === "admin@gmail.com") {
+                    if (localStorage.getItem("user_email") === "admin@gmail.com") {
                         // El usuario es admin
-                        localStorage.setItem("admin", true);
+                        localStorage.setItem("isAdmin", true);
                     } else {
                         // El usuario no es admin
-                        localStorage.setItem("admin", false);
+                        localStorage.setItem("isAdmin", false);
                     }
+                    console.log(response)
 
                     navigate("/") //te redirige a la pagina principal
 
