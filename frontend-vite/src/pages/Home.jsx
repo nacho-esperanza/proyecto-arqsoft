@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { Carousel } from 'react-responsive-carousel';
 
 import './Home.css';
 import '../App.css';
 import Barra from '../componentes/Barra/Barra';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 const Home = () => {
   const { id } = useParams();
@@ -30,7 +32,7 @@ const Home = () => {
         setImages(data);
         console.log(data);
       } catch (error) {
-        console.log('Error al obtener las imágenes del hotel:', error);
+        console.log('Error al obtener las imágenes de los hoteles:', error);
       }
     };
 
@@ -56,7 +58,15 @@ const Home = () => {
               <p>{hotel.description}</p>
             </div>
             <div className="imagen">
-              <img src={images[index]?.url} alt={`Imagen ${index}`} />
+              <Carousel>
+                {images
+                  .filter((image) => image.hotel_id === hotel.id)
+                  .map((image, i) => (
+                    <div key={i}>
+                      <img src={image.url} alt={`Imagen ${i}`} />
+                    </div>
+                  ))}
+              </Carousel>
             </div>
           </div>
         ))}
@@ -66,3 +76,4 @@ const Home = () => {
 };
 
 export default Home;
+
