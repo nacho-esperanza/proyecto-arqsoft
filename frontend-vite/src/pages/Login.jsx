@@ -36,9 +36,14 @@ const Login = () => {
                 if(response.id_user) {// si el usuario existe
                     // El usuario está en la base de datos
                     console.log('Usuario válido');
+                    
+                    // Guardamos el token en el localStorage
+                    localStorage.setItem("token", response.token);
 
+                    // Guardamos el id del usuario en el localStorage
                     localStorage.setItem("user_id", response.id_user);
-                    navigate("/home")
+                    
+                    navigate("/") //te redirige a la pagina principal
 
                 }
             } catch (error) {
