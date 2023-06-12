@@ -23,6 +23,7 @@ type hotelServiceInterface interface {
 	InsertHotel(hotelDto dto.HotelDto) (dto.HotelDto, e.ApiError)
 	AddHotelImage(hotelId int, imageDto dto.ImageDto) (dto.ImageDto, e.ApiError)
 	GetHotelImagesById(hotelId string) (dto.ImagesDto, e.ApiError)
+	GetHotelImages() (dto.ImagesDto, e.ApiError)
 }
 
 var (
@@ -189,6 +190,26 @@ func (s *hotelService) GetHotelImagesById(hotelId string) (dto.ImagesDto, e.ApiE
 			Url:     image.Url,
 			HotelId: image.HotelId,
 		}
+		imagesDto = append(imagesDto, imageDto)
+	}
+
+	return imagesDto, nil
+}
+
+// Funcion que muestra TODAS las imagenes de TODOS los hoteles
+func (s *hotelService) GetHotelImages() (dto.ImagesDto, e.ApiError) {
+
+	images := imageCliente.GetHotelImages()
+
+	imagesDto := dto.ImagesDto{}
+
+	for _, image := range images {
+		imageDto := dto.ImageDto{}
+
+		imageDto.Id = image.Id
+		imageDto.Url = image.Url
+		imageDto.HotelId = image.HotelId
+
 		imagesDto = append(imagesDto, imageDto)
 	}
 

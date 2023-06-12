@@ -30,6 +30,7 @@ func mapUrls() {
 
 	// Images Mapping
 	router.GET("/hotel/:hotelId/images", hotelController.GetHotelImagesById)
+	router.GET("/hotel/images", hotelController.GetHotelImages)
 	router.POST("/hotel/:hotelId/image", hotelController.AddHotelImage)
 
 	// Bookings Mapping

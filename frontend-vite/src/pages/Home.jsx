@@ -10,7 +10,7 @@ import Barra from "../componentes/Barra/Barra";
 
 const Home = () => {
   const { id } = useParams();
-  const [hotel, setHotel] = useState(null);
+  const [hotels, setHotels] = useState([]);
   const [images, setImages] = useState([]);
 
   // hotelsdata.map (repite todo el array de hoteles)
@@ -18,11 +18,12 @@ const Home = () => {
   useEffect(() => {
     const fetchHotel = async () => {
       try {
-        const response = await fetch(`http://localhost:8090/hotel/id/${id}`);
+        const response = await fetch(`http://localhost:8090/hotels`);
         const data = await response.json();
-        setHotel(data);
+        setHotels(data);
+        console.log(data)
       } catch (error) {
-        console.log('Error al obtener el hotel:', error);
+        console.log('Error al obtener los hoteles:', error);
       }
     };
 
@@ -32,7 +33,7 @@ const Home = () => {
         const response = await fetch(`http://localhost:8090/hotel/${id}/images/`);
         const data = await response.json();
         setImages(data);
-        console.log(data)
+        console.log(data);
       } catch (error) {
         console.log('Error al obtener las imágenes del hotel:', error);
       }

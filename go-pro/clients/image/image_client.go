@@ -27,3 +27,11 @@ func GetHotelImagesById(hotelId int) model.Images {
 	log.Debug("Images: ", images)
 	return images
 }
+
+// Obtener las imagenes de todos los hoteles
+func GetHotelImages() model.Images {
+	var images model.Images
+	Db.Find(&images)
+	log.Debug("Images: ", images)
+	return images
+}

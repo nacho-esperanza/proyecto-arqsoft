@@ -146,3 +146,15 @@ func GetHotelImagesById(c *gin.Context) {
 		c.JSON(http.StatusOK, imagesDto)
 	*/
 }
+
+func GetHotelImages(c *gin.Context) {
+	var imagesDto dto.ImagesDto
+	imagesDto, err := service.HotelService.GetHotelImages()
+
+	if err != nil {
+		c.JSON(err.Status(), err)
+		return
+	}
+
+	c.JSON(http.StatusOK, imagesDto)
+}
