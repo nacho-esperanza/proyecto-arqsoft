@@ -86,7 +86,7 @@ const Hotel = () => {
         Precio del Hotel: {hotel.price}
         <br></br>
         <br></br>
-        <button>Reservar</button>
+        <button  onClick={() => window.location.href = `/reserva/${hotel.id}`}>Reservar</button>
       </div>
     </div>
   );
