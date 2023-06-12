@@ -131,6 +131,7 @@ const Hotel = () => {
 
       // ARREGLEN LAS IMAGENES POR FAVOR
       <div className="hotel_img">
+        <img src="https://media-cdn.tripadvisor.com/media/photo-s/16/1a/ea/54/hotel-presidente-4s.jpg" alt="imagen de prueba" />
         {images && images.map((image, index) => (
           <img src={image.url} alt={`Imagen ${index}`} key={index} />
         ))}

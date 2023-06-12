@@ -11,6 +11,7 @@ import Home from './pages/Home.jsx';
 import Lista from './pages/Lista.jsx';
 import Hotel from './pages/Hotel.jsx';
 import SignUp from './pages/SignUp.jsx';
+import Reserva from './pages/Reserva.jsx';
 
 // Saque <Header /> para que no se vea en todas las paginas.
 
@@ -26,6 +27,7 @@ function App() {
           <Route path="/hotel/:id" element={<Hotel />}/>
           <Route path="/login" element={<Login />}/>
           <Route path="/signup" element={<SignUp />}/>
+          <Route path="/reserva/:id" element={<Reserva />}/>
         </Routes>
       </Router>
 
