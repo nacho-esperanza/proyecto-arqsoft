@@ -1,43 +1,49 @@
+.NaveBa {
+  height: 50px;
+  background-color: #5086cc6c;
+  display: flex;
+  justify-content: center;
+}
 
+h1 {
+  color: aliceblue;
+  letter-spacing: 2px;
+  font-size: 45px;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
 
-.NaveBa{
-    height: 50px;
-    background-color: #5086cc6c;
-    display: flex;
-    justify-content: center;
-  }
-  
-  h1{
-    color: aliceblue;
-    letter-spacing: 2px;
-    font-size: 45px;
-    text-align: center;
-   
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); 
-  }
+.NaveC {
+  width: 100%;
+  max-width: 1024px;
+  color: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px; /* Agregado para agregar espacio en los extremos */
+}
 
-  .NaveC{
-    width: 100%;
-    max-width: 1024px;
-    color: rgb(255, 255, 255);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  .logo{
-    font-weight: 500;
-    color: #ffffff;
-  }
-  
-  .NaveBo{
-    background-color: #f5a835;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    margin: 10px 10px 10px 10px;
-    border-radius: 5px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
-    transition: background-color 0.3s ease;
-   
-  }
+.logo {
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.NaveIt {
+  display: flex;
+  align-items: center;
+}
+
+h3 {
+  margin-right: 10px; /* Agregado para separar el texto del botón */
+}
+
+.NaveBo {
+  background-color: #f5a835;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  margin: 10px 10px 10px 10px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease;
+}
