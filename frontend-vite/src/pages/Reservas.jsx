@@ -8,6 +8,7 @@ const Reservas = () => {
     const isAdmin = localStorage.getItem("isAdmin");
     if (isAdmin === "true") {
       // Si el usuario es un administrador, obtener las reservas de todos los usuarios
+      console.log ("El usuario es un administrador");
       fetchBookings();
     } else {
       // Si el usuario no es un administrador, redirigir a otra página o mostrar un mensaje de acceso denegado
@@ -36,13 +37,12 @@ const Reservas = () => {
         {bookings.map((booking) => (
           <li key={booking.id}>
             {/* Mostrar los detalles de la reserva */}
-            <p>ID: {booking.id}</p>
-            <p>Hotel ID: {booking.hotel_id}</p>
-            <p>User ID: {booking.user_id}</p>
-            <p>Fecha de inicio: {booking.startdate}</p>
-            <p>Fecha de fin: {booking.enddate}</p>
-            <p>Precio total: {booking.total_price}</p>
-            {/* Agregar más detalles si es necesario */}
+            <p>ID: #{booking.id}</p>
+            <p>ID del Hotel: {booking.hotel_id}</p>
+            <p>ID del Usuario: {booking.user_id}</p>
+            <p>Fecha de Ingreso: {booking.startdate}</p>
+            <p>Fecha de Salida: {booking.enddate}</p>
+            <p>Total Abonado: {booking.total_price}</p>
           </li>
         ))}
       </ul>
