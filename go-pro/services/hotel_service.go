@@ -42,6 +42,7 @@ func (s *hotelService) GetHotelById(id int) (dto.HotelDto, e.ApiError) {
 		return hotelDto, e.NewBadRequestApiError("hotel not found")
 	}
 
+	hotelDto.Id = hotel.Id
 	hotelDto.Name = hotel.Name
 	hotelDto.Adress = hotel.Adress
 	hotelDto.City = hotel.City

@@ -36,10 +36,10 @@ const Reserva = () => {
                 'Content-Type': 'application/json',
               },
               body: JSON.stringify({
-                HotelId: hotel.id,
-                UserId: Number(localStorage.getItem("user_id")),
-                StartDate: tempStartDate,
-                EndDate: tempEndDate
+                hotelId: hotel.id,
+                userId: Number(localStorage.getItem("user_id")),
+                startDate: tempStartDate,
+                endDate: tempEndDate
               })
             });
             if (response.ok) {
@@ -48,6 +48,9 @@ const Reserva = () => {
               console.log('Se ha registrado su reserva');
             } else {
               console.log('No hay habitaciones disponibles');
+              
+              // Mostrar por consola el json enviado al backend
+            console.log(JSON.stringify({ hotelId: hotel.id, userId: Number(localStorage.getItem("user_id")), startDate: tempStartDate, endDate: tempEndDate }));
             }
           } catch (error) {
             console.log('Error al realizar la solicitud al backend:', error);
@@ -63,7 +66,7 @@ const Reserva = () => {
             const response = await fetch(`http://localhost:8090/hotel/id/${id}`);
             const data = await response.json();
             setHotel(data);
-            //console.log(data)
+            console.log(data)
           } catch (error) {
             console.log('Error al obtener el hotel:', error);
           }
@@ -112,7 +115,6 @@ const Reserva = () => {
                     <form id="formLogin" onSubmit={handleSubmit}>
                         <DateRangeComp onChange={(item) => { setStartDate(item.startDate); setEndDate(item.endDate); }} />
                         Precio Total: {precioTotal}
-                        
                         {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
                         <button id="botonLogin" type="submit" >Reservar</button>
                     </form>
