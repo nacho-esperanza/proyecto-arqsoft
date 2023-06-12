@@ -1,0 +1,35 @@
+body {
+
+    font-family: 'Lato', sans-serif;
+    background-image: linear-gradient(to bottom right, rgba(206, 195, 132, 0.377), rgba(255, 245, 196, 0.8)), url('https://www.lugaresdenieve.com/sites/default/files/estaciones/valle-nevado_22.jpg');
+    background-size: cover;
+    z-index: -1;
+    
+}
+  
+  
+
+h2{
+    letter-spacing: 2px;
+    font-size: 25px;
+    text-align: center;
+    color: #333; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); 
+}
+
+.hotel_caracteristica{
+    background-color:#eaeff5d8;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    margin-bottom: 10px;
+    margin-right: 5px;
+  }

@@ -41,7 +41,7 @@ const MisReservas = () => {
     }, []);
   
     return (
-      <div>
+      <div className='reservas'>
         <h1>Mis Reservas</h1>
         {bookings.length > 0 ? (
           <table>

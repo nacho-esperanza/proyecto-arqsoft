@@ -1,0 +1,53 @@
+body {
+
+    font-family: 'Lato', sans-serif;
+    background-image: linear-gradient(to bottom right, rgba(206, 195, 132, 0.377), rgba(255, 245, 196, 0.8)), url('https://images7.alphacoders.com/368/368326.jpg');
+    background-size: cover;
+    z-index: -1;
+}
+
+
+.reservas {
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 15 ;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+
+  p {
+    margin-top: 20px;
+  }
+
+
+  thead th {
+    background-color: #eecacaab;
+    font-weight: bold;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  /*Color interno de la tabla*/
+  tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  tbody td {
+    padding: 10px;
+  }
+
+  /*Modificaciones en la tabla tr*/
+
+
+  tbody td {
+    width: 20%;
+  }

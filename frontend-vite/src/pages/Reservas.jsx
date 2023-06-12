@@ -31,7 +31,7 @@ const Reservas = () => {
   };
 
   return (
-    <div>
+    <div classname="hotel_caracteristica">
       <h2>Reservas de todos los usuarios</h2>
       <ul>
         {bookings.map((booking) => (

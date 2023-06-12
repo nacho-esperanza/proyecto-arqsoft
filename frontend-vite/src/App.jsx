@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import React from 'react';
 import Header from './componentes/Header/Header.jsx';
 import Barra from './componentes/Barra/Barra.jsx';
-import Login from './pages/login.jsx';
+import Login from './pages/Login.jsx';
 import Home from './pages/Home.jsx';
 import Lista from './pages/Lista.jsx';
 import Hotel from './pages/Hotel.jsx';

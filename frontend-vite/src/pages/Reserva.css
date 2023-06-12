@@ -1,3 +1,21 @@
+body {
+
+  font-family: 'Lato', sans-serif;
+  
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+  margin-right: 5px;
+}
+
+
+
 .home-container {
     display: grid;
     grid-template-rows: auto auto 1fr;
@@ -15,6 +33,14 @@
     text-align: center;
     display: flex;
     justify-content: center;
+    background-color: #f5a835;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease;
+    animation: pulsar 1s initial;
     
   }
 
@@ -54,6 +80,7 @@
     grid-row: 4;
     grid-column: 1;
     background-color:#eaeff5d8;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
     padding: 10px;
   }
   
@@ -63,6 +90,7 @@
     background-color:#eaeff5d8;
     padding: 10px;
   }
+
   @media screen and (max-width: 768px) {
     .home-container {
       grid-template-rows: auto auto auto auto auto;
