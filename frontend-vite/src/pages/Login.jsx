@@ -42,7 +42,16 @@ const Login = () => {
 
                     // Guardamos el id del usuario en el localStorage
                     localStorage.setItem("user_id", response.id_user);
-                    
+
+                    // Verificamos si el usuario es admin
+                    if (response.email === "admin@gmail.com") {
+                        // El usuario es admin
+                        localStorage.setItem("admin", true);
+                    } else {
+                        // El usuario no es admin
+                        localStorage.setItem("admin", false);
+                    }
+
                     navigate("/") //te redirige a la pagina principal
 
                 }
