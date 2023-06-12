@@ -49,3 +49,16 @@ func InsertUser(user model.User) model.User {
 	log.Debug("User Created: ", user.Id)
 	return user
 }
+
+// funcion que verifique si un usuario es admin si su email es admin@gmail.com
+
+func IsAdmin(email string) bool {
+	var user model.User
+	Db.Where("email = ?", email).First(&user)
+
+	if user.Email == "admin@gmail.com" {
+		return true
+	} else {
+		return false
+	}
+}

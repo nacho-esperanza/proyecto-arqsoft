@@ -198,6 +198,11 @@ func (s *bookingService) GetBookings() (dto.BookingsDto, e.ApiError) {
 func (s *bookingService) GetBookingsByUserId(userId int) (dto.BookingsDto, e.ApiError) {
 	bookings := bookingCliente.GetBookingsByUserId(userId)
 
+	user := userCliente.GetUserById(userId)
+	if user.Id == 0 {
+		return dto.BookingsDto{}, e.NewBadRequestApiError("User not found")
+	}
+
 	bookingsDto := dto.BookingsDto{}
 
 	for _, booking := range bookings {

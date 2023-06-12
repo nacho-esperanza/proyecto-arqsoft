@@ -3,6 +3,7 @@ package app
 import (
 	bookingController "go-pro/controllers/booking"
 	hotelController "go-pro/controllers/hotel"
+	middlewareController "go-pro/controllers/middleware"
 	userController "go-pro/controllers/user"
 
 	log "github.com/sirupsen/logrus"
@@ -10,24 +11,36 @@ import (
 
 func mapUrls() {
 
+	log.Info("Starting mappings configurations")
+
 	// Users Mapping
 	router.GET("/user/:id", userController.GetUserById)
-	router.GET("/user", userController.GetUsers)
+
+	// Only for Admin
+	router.GET("/user", middlewareController.IsAdmin, userController.GetUsers)
+
 	router.POST("/user", userController.UserInsert)
 	router.POST("/user/login", userController.LoginUser)
 
 	// Hotels Mapping
 	router.GET("/hotel/id/:id", hotelController.GetHotelById)
 	router.GET("/hotel", hotelController.GetHotels)
-	router.POST("/hotel", hotelController.HotelInsert)
+
+	// Only for Admin
+	router.POST("/hotel", middlewareController.IsAdmin, hotelController.HotelInsert)
 
 	// Images Mapping
 	router.GET("/hotel/:hotelId/images", hotelController.GetHotelImagesById)
 	router.POST("/hotel/:hotelId/image", hotelController.AddHotelImage)
 
 	// Bookings Mapping
-	router.GET("/booking/id/:id", bookingController.GetBookingById)
-	router.GET("/booking", bookingController.GetBookings)
+
+	// Only for Admin
+	router.GET("/booking/id/:id", middlewareController.IsAdmin, bookingController.GetBookingById)
+
+	// Only for Admin
+	router.GET("/booking", middlewareController.IsAdmin, bookingController.GetBookings)
+
 	router.GET("/booking/user/:userId", bookingController.GetBookingsByUserId)
 	router.POST("/booking", bookingController.CreateBooking)
 
