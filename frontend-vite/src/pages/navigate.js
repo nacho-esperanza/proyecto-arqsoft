@@ -31,31 +31,26 @@ export const navigation = [
     },
     {
         id: 3,
-        path: '/lista',
-        Element: Lista,
-    },
-    {
-        id: 4,
         path: `/hotel/:id`,
         Element: Hotel,
     },
     {
-        id: 5,
+        id: 4,
         path: `/reserva/:id`,
         Element: Reserva,
     },
     {
-        id: 6,
+        id: 5,
         path: `/misreservas`,
         Element: MisReservas,
     },
     {
-        id: 7,
+        id: 6,
         path: `/reservas`,
         Element: Reservas,
     },
     {
-        id: 8,
+        id: 7,
         path: `/admin`,
         Element: Admin,
     },

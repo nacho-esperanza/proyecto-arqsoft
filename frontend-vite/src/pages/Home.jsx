@@ -58,7 +58,7 @@ const Home = () => {
               <p>{hotel.description}</p>
             </div>
             <div className="imagen">
-              <Carousel>
+              <Carousel showThumbs={false}>
                 {images
                   .filter((image) => image.hotel_id === hotel.id)
                   .map((image, i) => (
@@ -67,6 +67,12 @@ const Home = () => {
                     </div>
                   ))}
               </Carousel>
+            </div>
+            <div className='precio'>
+              <h3>Precio por noche: <h2>US$ {hotel.price}</h2></h3>
+            </div>
+            <div className="boton">
+            <button  onClick={() => window.location.href = `/hotel/${hotel.id}`}>Ver Hotel</button>
             </div>
           </div>
         ))}

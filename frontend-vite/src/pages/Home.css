@@ -52,10 +52,13 @@ h2{
   }
   
   .imagen img {
-    max-width: 100%;
-    height: auto;
+    /*max-width: 100%;*/
+    width: auto;
+  height: 300px; /* Establece la altura fija deseada */
+  object-fit: cover; /* Ajusta la imagen al tamaño especificado sin deformarla */
   }
-  
+
+
   /* Estilos responsive */
   @media screen and (max-width: 768px) {
     .hoteles {

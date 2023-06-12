@@ -8,7 +8,6 @@ import Header from './componentes/Header/Header.jsx';
 import Barra from './componentes/Barra/Barra.jsx';
 import Login from './pages/Login.jsx';
 import Home from './pages/Home.jsx';
-import Lista from './pages/Lista.jsx';
 import Hotel from './pages/Hotel.jsx';
 import SignUp from './pages/SignUp.jsx';
 import Reserva from './pages/Reserva.jsx';
@@ -26,7 +25,6 @@ function App() {
         <Routes>
         
           <Route path="/" element={<Home />}/>
-          <Route path="/lista" element={<Lista />}/>
           <Route path="/hotel/:id" element={<Hotel />}/>
           <Route path="/login" element={<Login />}/>
           <Route path="/signup" element={<SignUp />}/>
