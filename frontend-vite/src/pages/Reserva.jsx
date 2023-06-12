@@ -36,10 +36,10 @@ const Reserva = () => {
                 'Content-Type': 'application/json',
               },
               body: JSON.stringify({
-                hotelId: hotel.id,
-                userId: Number(localStorage.getItem("user_id")),
-                startDate: tempStartDate,
-                endDate: tempEndDate
+                hotel_id: hotel.id,
+                user_id: Number(localStorage.getItem("user_id")),
+                startdate: tempStartDate,
+                enddate: tempEndDate
               })
             });
             if (response.ok) {
@@ -50,7 +50,12 @@ const Reserva = () => {
               console.log('No hay habitaciones disponibles');
               
               // Mostrar por consola el json enviado al backend
-            console.log(JSON.stringify({ hotelId: hotel.id, userId: Number(localStorage.getItem("user_id")), startDate: tempStartDate, endDate: tempEndDate }));
+            console.log(JSON.stringify({ 
+                hotel_id: hotel.id, 
+                user_id: Number(localStorage.getItem("user_id")), 
+                startdate: tempStartDate, 
+                enddate: tempEndDate 
+            }));
             }
           } catch (error) {
             console.log('Error al realizar la solicitud al backend:', error);

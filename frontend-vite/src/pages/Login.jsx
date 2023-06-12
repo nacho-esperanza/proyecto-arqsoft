@@ -26,15 +26,20 @@ const Login = () => {
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({email, password}),
+                }).then(response => {
+                        if(response.ok){
+                            return response.json();
+                        }else{
+                            alert("Usuario Invalido");
+                        }
                 });
-                if (response.ok) {// si el usuario existe
+                if(response.id_user) {// si el usuario existe
                     // El usuario está en la base de datos
                     console.log('Usuario válido');
+
+                    localStorage.setItem("user_id", response.id_user);
                     navigate("/home")
 
-                } else {
-                    // El usuario no está en la base de datos o hay un error en el servidor
-                    console.log('Usuario inválido');
                 }
             } catch (error) {
                 console.log('Error al realizar la solicitud al backend:', error);
