@@ -44,8 +44,30 @@
     grid-column: 2;
     background-color: #22963b;
     padding: 10px;
+    height: 400px;
+    width: 600px;
+    object-fit: contain;
   }
   
+  .slick-slider {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+  }
+  
+  .slick-slide {
+    display: none;
+    float: left;
+    height: 100%;
+    min-height: 1px;
+  }
+  
+  .slick-slide img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
   .hotel_caracteristica {
     grid-row: 4;
     grid-column: 1;

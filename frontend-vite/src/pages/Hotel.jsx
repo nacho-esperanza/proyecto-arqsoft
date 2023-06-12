@@ -1,81 +1,12 @@
-/*
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-
-import './Hotel.css';  
-
-const Hotel = () => {
-    const { id } = useParams();
-    const [hotel, setHotel] = useState(null);
-
-    // hotelsdata.map (repite todo el array de hoteles)
-  
-  
-    useEffect(() => {
-      const fetchHotel = async () => {
-        try {
-          const response = await fetch(`http://localhost:8090/hotel/id/${id}`);
-          const data = await response.json();
-          setHotel(data);
-        } catch (error) {
-          console.log('Error al obtener el hotel:', error);
-        }
-      };
-  
-      fetchHotel();
-    }, [id]);
-
-
-
-    return (
-        <div className="home-container">
-        
-        
-        <div className="menu_titulo">
-        <p>Username</p>
-        <h1>Caminos del Viento</h1>
-    
-        </div>
-    
-    
-    
-        <div className="nombre_hotel">{hotel.name}</div>
-        <div className="hotel_descripcion">Descripción del Hotel
-        
-        <p> {hotel.description}  </p>
-         
-        </div>
-        
-        <div className="hotel_img">Imagen del Hotel
-        
-        </div>
-        
-        
-        <div className="hotel_caracteristica">Características del Hotel:
-        <li>Parking: {hotel.parking}</li>
-        <li>Pool: {hotel.pool}</li>
-        <li>Wifi: {hotel.wifi}</li>
-        <li>Aire: {hotel.air}</li>
-        <li>Gym: {hotel.gym}</li>
-        <li>Spa: {hotel.spa}</li>
-        </div>
-        <div className="hotel_Precio">Precio del Hotel: {hotel.price}
-        <br></br>
-        <br></br>
-        <button>Reservar</button>
-        </div>
-      </div>
-      );
-    };
-      
-    export default Hotel;*/
-
-
-// ESTO ES EL MISMO CODIGO QUE ARRIBA PERO CORREGIDO
 
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import './Hotel.css';
+
+// librerias para el carrusel de imagenes
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 const Hotel = () => {
   const { id } = useParams();
@@ -95,12 +26,13 @@ const Hotel = () => {
       }
     };
 
+    // Para las imagenes es necesario activar/desactivar CORS en el navegador
     const fetchImages = async () => {
       try {
         const response = await fetch(`http://localhost:8090/hotel/${id}/images/`);
         const data = await response.json();
         setImages(data);
-        console.log(images)
+        console.log(data)
       } catch (error) {
         console.log('Error al obtener las imágenes del hotel:', error);
       }
@@ -118,7 +50,6 @@ const Hotel = () => {
   return (
     <div className="home-container">
       <div className="menu_titulo">
-        <p>Username</p>
         <h1>Caminos del Viento</h1>
       </div>
 
@@ -129,12 +60,15 @@ const Hotel = () => {
       </div>
 
 
-      // ARREGLEN LAS IMAGENES POR FAVOR
       <div className="hotel_img">
-        <img src="https://media-cdn.tripadvisor.com/media/photo-s/16/1a/ea/54/hotel-presidente-4s.jpg" alt="imagen de prueba" />
-        {images && images.map((image, index) => (
-          <img src={image.url} alt={`Imagen ${index}`} key={index} />
+      <Slider dots={false} infinite={true} slidesToShow={1} slidesToScroll={1} className="slick-slider">
+         {images &&
+            images.map((image, index) => (
+            <div className="slick-slide" key={index}>
+              <img src={image.url} alt={`Imagen ${index}`} />
+            </div>
         ))}
+      </Slider>
       </div>
 
       <div className="hotel_caracteristica">
