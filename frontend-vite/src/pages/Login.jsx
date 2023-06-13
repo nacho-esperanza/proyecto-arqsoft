@@ -3,6 +3,9 @@ import { useNavigate, } from "react-router-dom";
 
 import './Login.css';
 
+// Import react hot toast
+import toast, { Toaster } from 'react-hot-toast';
+
 
 const Login = () => {
     const navigate = useNavigate(); //permite la navegación entre paginasd con las rutas
@@ -28,13 +31,15 @@ const Login = () => {
                     body: JSON.stringify({email, password}),
                 }).then(response => {
                         if(response.ok){
+                            toast.success("Usuario Valido")
                             return response.json();
                         }else{
-                            alert("Usuario Invalido");
+                            toast.error("Usuario Invalido")
                         }
                 });
                 if(response.id_user) {// si el usuario existe
                     // El usuario está en la base de datos
+                    toast.success("Usuario Valido")
                     console.log('Usuario válido');
                     
                     // Guardamos el token en el localStorage
@@ -124,6 +129,7 @@ const Login = () => {
                   <button className="botom_SingUp" name='SignUp_login' onClick={() => window.location.href = '/'}>Back</button>
               </div>
               </form>
+              <Toaster position="top-center" reverseOrder={false} />
               <br/>
               </div>
               
