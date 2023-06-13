@@ -113,7 +113,6 @@ const Reserva = () => {
         <div className="home-container">
           <div >
             <div className="menu_titulo">
-                <p>Username</p>
                 <h1>Reserva</h1>
             </div>
             <div className="nombre_hotel">{hotel.name}</div>
@@ -146,12 +145,12 @@ const Reserva = () => {
           <li>Spa: {hotel.spa ? 'Incluye' : 'No Incluye'}</li>
         </ul>
       </div>
-      <div className="hotel_Precio">
+      {/*<div className="hotel_Precio">
         Precio Total: {precioTotal}
         <br></br>
         <br></br>
         <button>Reservar</button>
-      </div>
+      </div>*/}
 
            
           </div>

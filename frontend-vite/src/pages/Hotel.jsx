@@ -57,6 +57,8 @@ const Hotel = () => {
       <div className="hotel_descripcion">
         Descripción del Hotel
         <p>{hotel.description}</p>
+        <br />
+        <p>Direccion del Hotel: {hotel.adress}</p>
       </div>
 
 
