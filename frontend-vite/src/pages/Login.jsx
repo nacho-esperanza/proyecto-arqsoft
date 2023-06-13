@@ -39,7 +39,6 @@ const Login = () => {
                 });
                 if(response.id_user) {// si el usuario existe
                     // El usuario está en la base de datos
-                    toast.success("Usuario Valido")
                     console.log('Usuario válido');
                     
                     // Guardamos el token en el localStorage
@@ -64,6 +63,9 @@ const Login = () => {
                     // Verificamos si el usuario es admin
                     if (localStorage.getItem("user_email") === "admin@gmail.com") {
                         // El usuario es admin
+                        toast('Bienvenido Admin!', {
+                            icon: '🙏',
+                          });
                         localStorage.setItem("isAdmin", true);
                     } else {
                         // El usuario no es admin
@@ -71,8 +73,9 @@ const Login = () => {
                     }
                     console.log(response)
 
-                    navigate("/") //te redirige a la pagina principal
-
+                    setTimeout(() => {
+                        navigate('/');
+                      }, 2000); // Redirige después de 2 segundos a la página de inicio
                 }
             } catch (error) {
                 console.log('Error al realizar la solicitud al backend:', error);

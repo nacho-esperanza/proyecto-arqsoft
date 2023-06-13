@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './SignUp.css';
 
+// importar hot toaster
+import toast from 'react-hot-toast';
+
+
 const SignUp = () => {
   const navigate = useNavigate();
   const [name, setName] = useState('');
@@ -43,8 +47,10 @@ const SignUp = () => {
 
         if (response.ok) {
           console.log('Usuario creado');
+          toast.success('Usuario creado');
           navigate('/home');
         } else {
+          toast.error('Usuario inválido');
           console.log('Usuario inválido');
         }
       } catch (error) {
