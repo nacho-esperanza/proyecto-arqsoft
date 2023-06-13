@@ -14,6 +14,8 @@ import Reserva from './pages/Reserva.jsx';
 import MisReservas from './pages/MisReservas';
 import Reservas from './pages/Reservas.jsx';
 import Admin from './pages/Admin.jsx';
+import CrearHotel from './pages/CrearHotel.jsx';
+
 
 // Saque <Header /> para que no se vea en todas las paginas.
 
@@ -32,6 +34,8 @@ function App() {
           <Route path="/misreservas" element={<MisReservas />}/>
           <Route path="/reservas" element={<Reservas />}/>
           <Route path="/admin" element={<Admin />}/>
+          <Route path="/crearhotel" element={<CrearHotel />}/>
+
         </Routes>
       </Router>
 
