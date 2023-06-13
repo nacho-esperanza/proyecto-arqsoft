@@ -53,7 +53,9 @@ const Hotel = () => {
         <h1>Caminos del Viento</h1>
       </div>
 
-      <div className="nombre_hotel">{hotel.name}</div>
+      <div className="nombre_hotel">
+        {hotel.name}
+        </div>
       <div className="hotel_descripcion">
         Descripción del Hotel
         <p>{hotel.description}</p>
@@ -85,10 +87,9 @@ const Hotel = () => {
         </ul>
       </div>
       <div className="hotel_Precio">
-        Precio del Hotel: {hotel.price}
-        <br></br>
-        <br></br>
+        Precio del Hotel: <h2>US$ {hotel.price}</h2>
         <button  onClick={() => window.location.href = `/reserva/${hotel.id}`}>Reservar</button>
+        <button onClick={() => window.location.href = `/`}> Volver</button>
       </div>
     </div>
   );

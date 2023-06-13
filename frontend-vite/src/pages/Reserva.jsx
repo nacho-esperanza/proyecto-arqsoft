@@ -151,6 +151,9 @@ const Reserva = () => {
         <br></br>
         <button>Reservar</button>
       </div>*/}
+      <div className='hotel_Precio'>
+      <button  onClick={() => window.location.href = `/hotel/${hotel.id}`}>Volver</button>
+      </div>
 
            
           </div>

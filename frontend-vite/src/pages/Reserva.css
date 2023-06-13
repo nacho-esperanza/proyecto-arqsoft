@@ -17,9 +17,9 @@ li {
 
 
 .home-container {
-    display: grid;
+    /*display: grid;
     grid-template-rows: auto auto 1fr;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;*/
     gap: 20px;
     padding: 20px;
     background-image: linear-gradient(to bottom right, rgba(206, 195, 132, 0.377), rgba(255, 245, 196, 0.8)), url('https://images7.alphacoders.com/368/368326.jpg');
@@ -45,31 +45,31 @@ li {
   }
 
   .menu_titulo {
-    grid-row: 1;
-    grid-column: 1 / -1;
+    /*grid-row: 1;
+    grid-column: 1 / -1;*/
     background-color:#eaeff5d8;
     color: white;
     padding: 10px;
   }
   
   .nombre_hotel {
-    grid-row: 2;
-    grid-column: 1 / -1;
+    /*grid-row: 2;*/
+   /* grid-column: 1 / -1;*/
     background-color:  #eaeff5d8;
     padding: 10px;
   }
   
   .hotel_descripcion {
-    grid-row: 3;
-    grid-column: 1;
+    /*grid-row: 3;
+    grid-column: 1;*/
     background-color:#eaeff5d8;
     padding: 10px;
   }
   
   .hotel_fechas {
-    grid-row: 3;
-    grid-column: 2;
-    background-color: #22963b;
+    /*grid-row: 3;
+    grid-column: 2;*/
+    background-color: #19bfbf;
     padding: 10px;
     display: flex;
     justify-content: center;
@@ -77,16 +77,16 @@ li {
   }
   
   .hotel_caracteristica {
-    grid-row: 4;
-    grid-column: 1;
+   /* grid-row: 4;
+    grid-column: 1;*/
     background-color:#eaeff5d8;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
     padding: 10px;
   }
   
   .hotel_Precio {
-    grid-row: 4;
-    grid-column: 2;
+    /*grid-row: 4;
+    grid-column: 2;*/
     background-color:#eaeff5d8;
     padding: 10px;
   }
