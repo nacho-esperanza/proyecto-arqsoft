@@ -4,6 +4,9 @@ import {useNavigate, useParams} from 'react-router-dom';
 
 import './Reserva.css';
 
+// Import react hot toast
+import toast, {Toaster} from 'react-hot-toast';
+
 const Reserva = () => {
     const { id } = useParams();
     const [hotel, setHotel] = useState(null);
@@ -45,8 +48,12 @@ const Reserva = () => {
             if (response.ok) {
                 const data = await response.json();
         setPrecioTotal(data.totalPrice);
+
+              toast.success('Se ha registrado su reserva correctamente!');      
+
               console.log('Se ha registrado su reserva');
             } else {
+              toast.error('No hay habitaciones disponibles');
               console.log('No hay habitaciones disponibles');
               
               // Mostrar por consola el json enviado al backend
@@ -92,6 +99,7 @@ const Reserva = () => {
             const total = hotel.price * diffInDays;
     
             // Actualiza el estado del precio total
+            console.log(total);
             setPrecioTotal(total);
           }
         };
@@ -123,6 +131,7 @@ const Reserva = () => {
                         {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
                         <button id="botonLogin" type="submit" >Reservar</button>
                     </form>
+                    <Toaster/>
             
                  </div>
 
