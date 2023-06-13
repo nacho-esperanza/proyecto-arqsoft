@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 
 const Reservas = () => {
   const [bookings, setBookings] = useState([]);
+  const [hotels, setHotels] = useState([]);
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
     // Verificar si el usuario es un administrador al cargar la página
@@ -10,6 +12,8 @@ const Reservas = () => {
       // Si el usuario es un administrador, obtener las reservas de todos los usuarios
       console.log ("El usuario es un administrador");
       fetchBookings();
+      fetchHotels();
+      fetchUsers();
     } else {
       // Si el usuario no es un administrador, redirigir a otra página o mostrar un mensaje de acceso denegado
       // Ejemplo: navigate("/acceso-denegado");
@@ -24,9 +28,38 @@ const Reservas = () => {
       const data = await response.json();
 
       // Almacenar las reservas en el estado
+      console.log(data.bookings);
       setBookings(data.bookings);
     } catch (error) {
       console.log('Error al obtener las reservas:', error);
+    }
+  };
+
+  const fetchHotels = async () => {
+    try {
+      // Realizar la solicitud para obtener los hoteles
+      const response = await fetch('http://localhost:8090/hotel');
+      const data = await response.json();
+
+      // Almacenar los hoteles en el estado
+      console.log(data.hotels);
+      setHotels(data.hotels);
+    } catch (error) {
+      console.log('Error al obtener los hoteles:', error);
+    }
+  };
+
+  const fetchUsers = async () => {
+    try {
+      // Realizar la solicitud para obtener los usuarios
+      const response = await fetch('http://localhost:8090/user');
+      const data = await response.json();
+      
+      // Almacenar los usuarios en el estado.
+      console.log(data.users);
+      setUsers(data.users);
+    } catch (error) {
+      console.log('Error al obtener los usuarios:', error);
     }
   };
 
