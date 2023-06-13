@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './SignUp.css';
 
 // importar hot toaster
-import toast from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
 
 
 const SignUp = () => {
@@ -14,7 +14,7 @@ const SignUp = () => {
   const [password, setPassword] = useState('');
 
   const signup = () => {
-    navigate('/home');
+    navigate('/');
   };
 
   const singup1 = () => {
@@ -48,11 +48,15 @@ const SignUp = () => {
         if (response.ok) {
           console.log('Usuario creado');
           toast.success('Usuario creado');
-          navigate('/home');
+          setTimeout(() => {
+            navigate('/');
+          }, 2000); // Redirige después de 2 segundos a la página de inicio
         } else {
           toast.error('Usuario inválido');
           console.log('Usuario inválido');
         }
+
+      
       } catch (error) {
         console.log('Error al realizar la solicitud al backend:', error);
       }
@@ -103,6 +107,8 @@ const SignUp = () => {
             Registrate
           </button>
         </form>
+        <Toaster position="top-center" reverseOrder={false} />
+        
 
         <p>Ya tengo Usuario</p>
         <button type="submit" onClick={() => window.location.href = '/login'}>
