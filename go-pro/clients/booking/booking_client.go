@@ -65,6 +65,9 @@ func GetBookingsByDateRange(hotelId int, startDate time.Time, endDate time.Time)
 	return count
 }*/
 
+// CONTAR DIA POR DIA LAS RESERVAS PARA EL FINAL
+// CAMBIAR LA QUERY
+
 func GetBookingsByDateRange(hotelId int, startDate time.Time, endDate time.Time) int {
 	var count int
 
