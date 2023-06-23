@@ -67,7 +67,7 @@ func GetBookingsByDateRange(hotelId int, startDate time.Time, endDate time.Time)
 
 // CONTAR DIA POR DIA LAS RESERVAS PARA EL FINAL
 // CAMBIAR LA QUERY
-
+/*
 func GetBookingsByDateRange(hotelId int, startDate time.Time, endDate time.Time) int {
 	var count int
 
@@ -81,18 +81,44 @@ func GetBookingsByDateRange(hotelId int, startDate time.Time, endDate time.Time)
 	log.Debug("Number of bookings: ", count)
 
 	return count
-}
+}*/
 
-/*
+// PRUEBA DE CONTAR DIA POR DIA LAS RESERVAS
+// POR AHORA FUNCIONA LA QUERY NUEVA
+
 func GetBookingsByDateRange(hotelId int, startDate time.Time, endDate time.Time) int {
 	var count int
-	Db.Model(&model.Booking{}).Where("HotelId = ? AND StartDate >= ? AND EndDate <= ?", hotelId, startDate, endDate).Count(&count)
+
+	// Obtener la lista de fechas dentro del rango
+	dates := getDatesInRange(startDate, endDate)
+
+	// Contar la cantidad de habitaciones reservadas por cada fecha
+	for _, date := range dates {
+		txn := Db.Model(&model.Bookings{}).Where("hotel_id = ? AND start_date <= ? AND end_date >= ?", hotelId, date, date).Count(&count)
+		if txn.Error != nil {
+			// Manejo de errores
+			log.Error("Error GetBookings", txn.Error)
+			return 100000
+		}
+	}
+
 	log.Debug("Number of bookings: ", count)
 
 	return count
-}*/
+}
 
-// funcion que devuelve las reservas de un usuario
+// Función auxiliar para obtener la lista de fechas dentro de un rango
+func getDatesInRange(startDate time.Time, endDate time.Time) []time.Time {
+	var dates []time.Time
+	currentDate := startDate
+
+	for !currentDate.After(endDate) {
+		dates = append(dates, currentDate)
+		currentDate = currentDate.AddDate(0, 0, 1)
+	}
+
+	return dates
+}
 
 func GetBookingsByUserId(userId int) []model.Booking {
 	var bookings []model.Booking
