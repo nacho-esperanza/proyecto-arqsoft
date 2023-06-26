@@ -1,6 +1,6 @@
-/*
 package imageController
 
+/*
 import (
 	"go-pro/dto"
 	service "go-pro/services"
