@@ -1,0 +1,23 @@
+version: '3'
+services:
+  backend:
+    build: ./
+    ports:
+      - 8090:8090
+    depends_on:
+      - database
+    networks:
+      - my-network
+
+  database:
+    image: mysql:latest
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD
+      - MYSQL_DATABASE=go_booking_db
+    networks:
+      - my-network
+
+networks:
+  my-network:
