@@ -16,7 +16,6 @@ const Reservas = () => {
       fetchUsers();
     } else {
       // Si el usuario no es un administrador, redirigir a otra página o mostrar un mensaje de acceso denegado
-      // Ejemplo: navigate("/acceso-denegado");
       console.log("Acceso denegado");
     }
   }, []);

@@ -18,6 +18,21 @@ const CrearHotel = () => {
     const [gym, setGym] = useState(false);
     const [spa, setSpa] = useState(false);
 
+    useEffect(() => {
+        // Verificar si el usuario es un administrador al cargar la página
+        const isAdmin = localStorage.getItem("isAdmin");
+        if (isAdmin === "true") {
+          // Si el usuario es un administrador, obtener las reservas de todos los usuarios
+          console.log ("El usuario es un administrador");
+          fetchBookings();
+          fetchHotels();
+          fetchUsers();
+        } else {
+          // Si el usuario no es un administrador, redirigir a otra página o mostrar un mensaje de acceso denegado
+          console.log("Acceso denegado");
+        }
+      }, []);
+
 
   const handleSubmit = async (event) => {
     event.preventDefault();
