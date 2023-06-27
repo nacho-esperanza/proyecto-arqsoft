@@ -23,6 +23,7 @@ func init() {
 	DBName := "go_booking_db"
 	DBUser := "root"
 	DBPass := ""
+
 	//DBPass := os.Getenv("MVC_DB_PASS")
 	DBHost := "localhost"
 

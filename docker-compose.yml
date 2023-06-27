@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  mysql:
+    build: ./Db
+    environment:
+      MYSQL_DATABASE: go_booking_db
+      MYSQL_ROOT_PASSWORD: ""
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root"]
+      timeout: 20s
+      retries: 10
+  frontend:
+    build: ./frontend-vite
+    depends_on:
+      mysql:
+        condition: service_healthy
+    ports:
+      - "3000:3000"
+  backend:
+    build: ./go-pro
+    depends_on:
+      mysql:
+        condition: service_healthy
+    ports:
+      - "8090:8090"
