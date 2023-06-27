@@ -4,54 +4,37 @@ import toast, { Toaster } from 'react-hot-toast';
 
 
 const CrearHotel = () => {
-  const [hotel, setHotel] = useState({
-    name: '',
-    address: '',
-    city: '',
-    stars: 0,
-    description: '',
-    price: 0,
-    rooms: 0,
-    parking: false,
-    pool: false,
-    wifi: false,
-    air: false,
-    gym: false,
-    spa: false,
-  });
+    const [name, setName] = useState('');
+    const [address, setAddress] = useState('');
+    const [city, setCity] = useState('');
+    const [stars, setStars] = useState(0);
+    const [description, setDescription] = useState('');
+    const [price, setPrice] = useState(0);
+    const [rooms, setRooms] = useState(0);
+    const [parking, setParking] = useState(false);
+    const [pool, setPool] = useState(false);
+    const [wifi, setWifi] = useState(false);
+    const [air, setAir] = useState(false);
+    const [gym, setGym] = useState(false);
+    const [spa, setSpa] = useState(false);
 
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setHotel((prevHotel) => ({
-      ...prevHotel,
-      [name]: value,
-    }));
-  };
-
-  const handleCheckboxChange = (event) => {
-    const { name, checked } = event.target;
-    setHotel((prevHotel) => ({
-      ...prevHotel,
-      [name]: checked,
-    }));
-  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (hotel.name === '') {
+    if (name === '') {
         document.getElementById('inputNombreHotel').style.borderColor = 'red';
-      } else if (hotel.address === '') {
+      } else if (address === '') {
         document.getElementById('inputDireccionHotel').style.borderColor = 'red';
-      } else if (hotel.city === '') {
+      } else if (city === '') {
         document.getElementById('inputCiudadHotel').style.borderColor = 'red';
-      } else if (hotel.stars === 0) {
+      } else if (stars === 0) {
         document.getElementById('inputEstrellasHotel').style.borderColor = 'red';
-      } else if (hotel.description === '') {
+      } else if (description === '') {
         document.getElementById('inputDescripcionHotel').style.borderColor = 'red';
-      } else if (hotel.price === 0) {
+      } else if (price === 0) {
         document.getElementById('inputPrecioHotel').style.borderColor = 'red';
-      } else if (hotel.rooms === 0) {
+      } else if (rooms === 0) {
         document.getElementById('inputHabitacionesHotel').style.borderColor = 'red';
       } else {
     try {
@@ -60,7 +43,7 @@ const CrearHotel = () => {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(hotel),
+            body: JSON.stringify({ name, address, city, stars, description, price, rooms, parking, pool, wifi, air, gym, spa }),
         }
             )
         if (response.ok) {
@@ -92,60 +75,107 @@ const CrearHotel = () => {
       <form onSubmit={handleSubmit}>
         <div>
           <label>Nombre:</label>
-          <input type="text" name="name" value={hotel.name} onChange={handleInputChange} />
+          <input 
+          type="text"
+           name="name"
+            value={name} 
+            onChange={(e) => setName(e.target.value)}  />
         </div>
         <div>
           <label>Dirección:</label>
-          <input type="text" name="address" value={hotel.address} onChange={handleInputChange} />
+          <input 
+          type="text" 
+          name="address" 
+          value={address} 
+          onChange={(e) => setAddress(e.target.value)} />
         </div>
         <div>
           <label>Ciudad:</label>
-          <input type="text" name="city" value={hotel.city} onChange={handleInputChange} />
+          <input 
+          type="text" 
+          name="city" 
+          value={city} 
+          onChange={(e) => setCity(e.target.value)} />
         </div>
         <div>
           <label>Estrellas:</label>
-          <input type="number" name="stars" value={hotel.stars} onChange={handleInputChange} />
+          <input 
+          type="number"
+           name="stars" 
+           value={stars}
+            onChange={(e) => setStars(e.target.value)} />
         </div>
         <div>
           <label>Descripción:</label>
-          <textarea name="description" value={hotel.description} onChange={handleInputChange} />
+          <textarea 
+          name="description"
+           value={description} 
+           onChange={(e) => setDescription(e.target.value)} />
         </div>
         <div>
           <label>Precio:</label>
-          <input type="number" name="price" value={hotel.price} onChange={handleInputChange} />
+          <input
+           type="number" 
+           name="price" 
+           value={price} 
+           onChange={(e) => setPrice(e.target.value)} />
         </div>
         <div>
           <label>Habitaciones:</label>
-          <input type="number" name="rooms" value={hotel.rooms} onChange={handleInputChange} />
+          <input 
+          type="number"
+           name="rooms"
+            value={rooms} 
+            onChange={(e) => setRooms(e.target.value)} />
         </div>
         <div>
           <label>Parking:</label>
           <input
             type="checkbox"
             name="parking"
-            checked={hotel.parking}
-            onChange={handleCheckboxChange}
+            checked={parking}
+            onChange={(e) => setParking(e.target.checked)}
           />
         </div>
         <div>
           <label>Piscina:</label>
-          <input type="checkbox" name="pool" checked={hotel.pool} onChange={handleCheckboxChange} />
+          <input 
+          type="checkbox"
+           name="pool" 
+           checked={pool} 
+           onChange={(e) => setPool(e.target.checked)} />
         </div>
         <div>
           <label>Wifi:</label>
-          <input type="checkbox" name="wifi" checked={hotel.wifi} onChange={handleCheckboxChange} />
+          <input 
+          type="checkbox" 
+          name="wifi" 
+          checked={wifi}
+            onChange={(e) => setWifi(e.target.checked)} />
         </div>
         <div>
           <label>Aire acondicionado:</label>
-          <input type="checkbox" name="air" checked={hotel.air} onChange={handleCheckboxChange} />
+          <input
+           type="checkbox" 
+           name="air" 
+           checked={air} 
+           onChange={(e) => setAir(e.target.checked)} />
         </div>
         <div>
           <label>Gimnasio:</label>
-          <input type="checkbox" name="gym" checked={hotel.gym} onChange={handleCheckboxChange} />
+          <input 
+          type="checkbox"
+           name="gym" 
+           checked={gym} 
+           onChange={(e) => setGym(e.target.checked)} />
         </div>
         <div>
           <label>Spa:</label>
-          <input type="checkbox" name="spa" checked={hotel.spa} onChange={handleCheckboxChange} />
+          <input
+           type="checkbox" 
+           name="spa"
+            checked={spa} 
+            onChange={(e) => setSpa(e.target.checked)} />
         </div>
         <button type="submit">Crear Hotel</button>
       </form>
