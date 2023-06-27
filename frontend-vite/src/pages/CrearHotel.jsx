@@ -1,5 +1,7 @@
 import { useState } from 'react';
-import axios from 'axios';
+// importar hot toaster
+import toast, { Toaster } from 'react-hot-toast';
+
 
 const CrearHotel = () => {
   const [hotel, setHotel] = useState({
@@ -37,14 +39,51 @@ const CrearHotel = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    if (hotel.name === '') {
+        document.getElementById('inputNombreHotel').style.borderColor = 'red';
+      } else if (hotel.address === '') {
+        document.getElementById('inputDireccionHotel').style.borderColor = 'red';
+      } else if (hotel.city === '') {
+        document.getElementById('inputCiudadHotel').style.borderColor = 'red';
+      } else if (hotel.stars === 0) {
+        document.getElementById('inputEstrellasHotel').style.borderColor = 'red';
+      } else if (hotel.description === '') {
+        document.getElementById('inputDescripcionHotel').style.borderColor = 'red';
+      } else if (hotel.price === 0) {
+        document.getElementById('inputPrecioHotel').style.borderColor = 'red';
+      } else if (hotel.rooms === 0) {
+        document.getElementById('inputHabitacionesHotel').style.borderColor = 'red';
+      } else {
     try {
-      const response = await axios.post('http://localhost:8090/hotel', hotel);
-      // Manejar la respuesta exitosa
-      console.log('Hotel creado:', response.data);
+        const response = await fetch( 'http://localhost:8090/hotel', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(hotel),
+        }
+            )
+        if (response.ok) {
+            console.log('Hotel creado');
+            toast.success('Hotel creado');
+            setTimeout(() => {
+                navigate('/home');
+            }, 2000); // Redirige después de 2 segundos a la página de inicio
+        } else {
+            toast.error('Hotel inválido');
+            console.log('Hotel inválido');
+        }
     } catch (error) {
-      // Manejar el error
-      console.error('Error al crear el hotel:', error);
+        console.log(error);
     }
+    }
+
+
+    // Enviar datos al backend
+
+
+
+    
   };
 
   return (
@@ -110,6 +149,7 @@ const CrearHotel = () => {
         </div>
         <button type="submit">Crear Hotel</button>
       </form>
+      <Toaster position="top-center" reverseOrder={false} />
     </div>
   );
 };

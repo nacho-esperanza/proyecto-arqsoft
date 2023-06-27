@@ -5,7 +5,7 @@ type Hotel struct {
 	Name        string  `gorm:"type:varchar(50);not null"`
 	Adress      string  `gorm:"type:varchar(100);not null"`
 	City        string  `gorm:"type:varchar(100);not null,unique"`
-	Stars       int     `gorm:"type:char(1);not null"`
+	Stars       int     `gorm:"type:int;not null"`
 	Description string  `gorm:"type:varchar(255);not null"`
 	Price       float32 `gorm:"type:float;not null"`
 

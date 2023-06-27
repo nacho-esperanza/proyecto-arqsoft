@@ -9,6 +9,7 @@ import MisReservas from "pages/MisReservas.jsx";
 import Reservas from "pages/Reservas.jsx";
 import Admin from "pages/Admin.jsx";
 import CrearHotel from "pages/CrearHotel.jsx";
+import AñadirImagenes from "pages/AñadirImagenes.jsx";
 
 
 const Home = lazy(() => import("pages/Home.jsx"));
@@ -60,6 +61,12 @@ export const navigation = [
         path: `/crearhotel`,
         Element: CrearHotel,
     },
+    {
+        id: 9,
+        path: `/añadirimagenes`,
+        Element: AñadirImagenes,
+    },
+
 
 
 ];
