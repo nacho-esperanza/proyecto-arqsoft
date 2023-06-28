@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 // importar hot toaster
 import toast, { Toaster } from 'react-hot-toast';
 
@@ -24,9 +24,7 @@ const CrearHotel = () => {
         if (isAdmin === "true") {
           // Si el usuario es un administrador, obtener las reservas de todos los usuarios
           console.log ("El usuario es un administrador");
-          fetchBookings();
-          fetchHotels();
-          fetchUsers();
+          handleSubmit();
         } else {
           // Si el usuario no es un administrador, redirigir a otra página o mostrar un mensaje de acceso denegado
           console.log("Acceso denegado");
