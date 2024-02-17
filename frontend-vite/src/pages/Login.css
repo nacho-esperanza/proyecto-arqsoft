@@ -1,96 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap');
+
 body {
-
-  font-family: 'Lato', sans-serif;
-  
+  font-family: 'Roboto', sans-serif;
+  background-color: #FBF0E6; /* Un fondo más cálido */
 }
-  
-  .login::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-image: linear-gradient(to bottom right, rgba(206, 195, 132, 0.377), rgba(255, 245, 196, 0.8)), url('https://get.wallhere.com/photo/bay-beach-hotel-swimming-pool-resort-lagoon-vacation-estate-leisure-resort-town-185213.jpg');
-    background-size: cover;
-    z-index: -1;
-  }
 
-  h1{
-    letter-spacing: 2px;
-    font-size: 45px;
-    text-align: center;
-    color: #333; 
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); 
-  }
+.login::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(to bottom right, rgba(255, 184, 108, 0.5), rgba(255, 166, 0, 0.511)), url('tu-url-de-imagen');
+  background-size: cover;
+  z-index: -1;
+}
+
+h2 {
+  font-family: 'Playfair Display', serif; /* Fuente más elegante para los títulos */
+  color: #503922;/* Un color más cálido y suave */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 2rem;
+  text-align: center;
+
+}
+
+
+
 
 .container_center {
-    width: 500px; 
-    height: 450px; 
-    margin:auto; 
-    text-align: center; 
-    vertical-align: middle; 
-    padding: 25px;
-    background-color: #5086cc;
-    color: white;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-   
-  }
+  background-color: rgba(255, 255, 255, 0.9); /* Fondo más claro para contraste */
+ 
+  margin: 5% auto;
+  padding: 20px;
+  max-width: 400px;
+  width: 90%;
+  border: 1px solid #EAD3C1;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.button_login, .button_SingUp, .boton_back {
+  background-color: #FFF8F0; /* Un fondo más cálido para los inputs */
+  border: 1px solid #a46b40d7;
+   margin: 8px 0;
+  padding: 10px;
+}
+
+.button_login, .button_SingUp, .boton_back {
+  background-color: #FFA500; /* Un color más cálido para los botones */
+  color: #ffffff;
+  margin-left: 20%;
+}
 
 
-
-  input {
-    margin: 20px 0px 20px 15px;
-    border: 5px solid #ccc;
-    border-radius: 5px ;
-    padding: 10px;
-    background-color: #f7f7f7;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease
-  }
-
-  input:focus {
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  }
-
-
-  .botom_login {
-    background-color: #f5a835;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
-    transition: background-color 0.3s ease;
-    animation: pulsar 1s infinite;
-  }
-
-  @keyframes pulsar {
-    0% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.1);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
-
-  .botom_SingUp {
-    background-color: #f5a835;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
-    transition: background-color 0.3s ease;
-
-  }
-
+input{
+  width: calc(100% - 20px); /* Ajusta el ancho considerando el padding */
+  padding: 12px 10px; /* Espacio interno para texto */
+  margin: 8px 0; /* Espacio externo entre elementos */
+  box-sizing: border-box; /* Incluye el padding y border en el ancho y alto del elemento */
+  border: 1px solid #ccc; /* Color de borde por defecto */
+  border-radius: 4px; /* Bordes redondeados */
+  background-color: #fff; /* Fondo blanco para destacar del fondo del formulario */
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Sombra interna sutil */
+  transition: border-color 0.3s, box-shadow 0.3s; /* Transición suave para feedback visual */
   
+}
+
+p {
+  color: #503922; /* Un color cálido y suave para el texto */
+  font-size: 16px; /* Un tamaño de fuente legible */
+  text-align: center; /* Centra el texto */
+}
+
+.link {
+  color: #f5a835; /* Color destacado para el enlace, acorde a la paleta de diseño */
+  cursor: pointer; /* Cambia el cursor para indicar que es clickeable */
+  text-decoration: underline; /* Subraya para indicar que es un enlace */
+  font-weight: bold; /* Hace el texto más grueso para destacarlo */
+  transition: color 0.3s ease-in-out; /* Suaviza la transición del color */
+}
+
+.link:hover {
+  color: #FFA500; /* Cambia el color al pasar el cursor para mejorar la interactividad */
+  text-decoration: none; /* Opcional: elimina el subrayado al pasar el cursor */
+}
+
+
 

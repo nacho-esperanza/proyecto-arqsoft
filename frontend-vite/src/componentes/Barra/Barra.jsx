@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 
 import "./Barra.css";
@@ -36,21 +37,24 @@ const Barra = () => {
   return (
     <div className="NaveBa">
       <div className="NaveC">
-        <h1 className="logo">Caminos del Viento</h1>
+        <h1>SaNaFrAu</h1>
+        
         <div className="NaveIt">
-          {user && (
+        {user && (
             <>
-              <h3>Hola {user.name}!</h3>
+             
               {isAdmin === "true" && (
                 <>
                   {/* Mostrar opciones específicas para el administrador */}
                   <button className="NaveBo" onClick={() => window.location.href = '/admin'}>Panel de Administrador</button>
+                  <button className="NaveBo" name='button_SingUp' onClick={() => window.location.href = '/'}>Home</button>
                 </>
               )}
               {isAdmin === "false" && (
                 <>
                   {/* Mostrar opciones específicas para el cliente */}
                   <button className="NaveBo" onClick={() => window.location.href = '/misreservas'}>Mis Reservas</button>
+                  <button className="NaveBo" name='button_SingUp' onClick={() => window.location.href = '/'}>Home</button>
                 </>
               )}
               <button className="NaveBo" onClick={handleLogout}>Cerrar sesión</button>
@@ -60,9 +64,11 @@ const Barra = () => {
             <>
               {/* Mostrar opciones para un usuario no autenticado */}
               <button className="NaveBo" onClick={handleSignup}>Registrar</button>
-              <button className="NaveBo" onClick={handleLogin}>Iniciar sesión</button>
+              <button className="NaveBo" onClick={handleLogin}>Iniciar</button>
+              <button className="NaveBo" name='button_SingUp' onClick={() => window.location.href = '/'}>Home</button>
             </>
           )}
+
         </div>
       </div>
     </div>

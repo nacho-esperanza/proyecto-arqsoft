@@ -11,7 +11,7 @@ const Login = () => {
     const navigate = useNavigate(); //permite la navegación entre paginasd con las rutas
     const [email, setEmail] = useState(''); //se inicializan las variables vacias
     const [password, setPassword] = useState('');
-    const register = () =>{ // funbcion que te redirige a  register
+    const register = () =>{ // funcion que te redirige a  register
       navigate("/signup");
     };
     const handleSubmit = async (e) => { //recibe los datos del formulario
@@ -85,13 +85,8 @@ const Login = () => {
     };
     return (
       <div className="login">
-         
-             <h1>Caminos del Viento</h1> 
-  
-          
-         
           <div className="container_center">
-              <div  className="z-depth-3 y-depth-3 x-depth-3 grey green-text lighten-4 row" id="loginContainer">
+              <div  id="loginContainer">
               <br />
   
               <h2>Iniciar Sesion</h2>
@@ -121,16 +116,20 @@ const Login = () => {
                      <script>
                           
                      </script>
+
+                   
                   </div>
-              </div>
+                  <br />
+                  <button className="button_login" id="button_login" type='submit' name='btn_login'>Iniciar</button>
+                  <br />
+                  <p>No tienes una cuenta? <span className="link" onClick={() => navigate("/signup")}>Regístrate</span></p>
+
+                </div>
               <br />
-              <div className='row'>
-                  <button className="botom_login" id="loginButton" type='submit' name='btn_login'>Iniciar</button>
-                  <p>No tienes Usuario registrate:</p>
-                  <button className="botom_SingUp" id="SingUPButton" type='submit' name='SignUp_login' onClick={() => navigate("/signup") /*window.location.href = '/signup'*/}>Registrarse</button>
-                  <p></p>
-                  <button className="botom_SingUp" name='SignUp_login' onClick={() => window.location.href = '/'}>Back</button>
-              </div>
+
+              
+              
+            
               </form>
               <Toaster position="top-center" reverseOrder={false} />
               <br/>
@@ -138,7 +137,7 @@ const Login = () => {
               
           </div>
           <br />
-          <br />
+       
       
       
           </div>

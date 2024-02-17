@@ -5,9 +5,9 @@ services:
     build: ./Db
     environment:
       MYSQL_DATABASE: go_booking_db
-      MYSQL_ROOT_PASSWORD: ""
+      MYSQL_ROOT_PASSWORD: root
     ports:
-      - "3306:3306"
+      - "3307:3306"
     volumes:
       - ./db:/docker-entrypoint-initdb.d
     healthcheck:

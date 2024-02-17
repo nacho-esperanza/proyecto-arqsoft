@@ -22,14 +22,14 @@ func init() {
 	// DB Connections Paramters
 	DBName := "go_booking_db"
 	DBUser := "root"
-	DBPass := ""
+	DBPass := "root"
 
 	//DBPass := os.Getenv("MVC_DB_PASS")
 	DBHost := "localhost"
 
 	// ------------------------
 
-	db, err = gorm.Open("mysql", DBUser+":"+DBPass+"@tcp("+DBHost+":3306)/"+DBName+"?charset=utf8&parseTime=True")
+	db, err = gorm.Open("mysql", DBUser+":"+DBPass+"@tcp("+DBHost+":3307)/"+DBName+"?charset=utf8&parseTime=True")
 
 	if err != nil {
 		log.Info("Connection Failed to Open")

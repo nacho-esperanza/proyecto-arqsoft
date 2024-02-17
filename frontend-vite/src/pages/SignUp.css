@@ -1,83 +1,77 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap');
 
-  font-family: 'Lato', sans-serif;
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #FBF0E6; /* Un fondo más cálido */
   
 }
 
-
-.signup-container-1::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-image: linear-gradient(to bottom right, rgba(206, 195, 132, 0.377), rgba(255, 245, 196, 0.8)), url('https://www.lugaresdenieve.com/sites/default/files/estaciones/valle-nevado_22.jpg');
-  background-size: cover;
-  z-index: -1;
+.signup-container-1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra horizontalmente los elementos hijos */
+  justify-content: center; /* Centra verticalmente los elementos hijos */
+  background-color: rgba(255, 255, 255, 0.9); /* Fondo más claro para contraste */
+  border: 1px solid #EAD3C1; /* Borde sutil */
+  margin: 5% auto;
+  padding: 20px;
+  max-width: 65%;
+  width: 90%;
+  position: relative;
 }
 
-h1{
-  letter-spacing: 2px;
-  font-size: 45px;
-  text-align: center;
-  color: #333; 
-text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); 
-}
+
 
 .signup-container {
-  width: 500px; 
-  height: 600px; 
-  margin:auto; 
-  text-align: center; 
-  vertical-align: middle; 
-  padding: 25px;
-  background-color: #5086cc;
-  color: white;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+button {
+  width: 60%; /* Ajusta el ancho del botón según prefieras */
+  padding: 500px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f5a835; /* Color de fondo */
+  color: #ffffff; /* Color del texto */
   align-items: center;
-  justify-content: space-around;
-  position: relative;
-  border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.botonRegistrarse{
+    margin-left: 25%;
+
+}
+
+input{
+  width: calc(100% - 20px); /* Ajusta el ancho considerando el padding */
+  padding: 12px 10px; /* Espacio interno para texto */
+  margin: 8px 0; /* Espacio externo entre elementos */
+  box-sizing: border-box; /* Incluye el padding y border en el ancho y alto del elemento */
+  border: 1px solid #ccc; /* Color de borde por defecto */
+  border-radius: 4px; /* Bordes redondeados */
+  background-color: #fff; /* Fondo blanco para destacar del fondo del formulario */
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Sombra interna sutil */
+  transition: border-color 0.3s, box-shadow 0.3s; /* Transición suave para feedback visual */
+}
+
+
+@keyframes pulsar {
+  0% {
+    transform: scale(1);
   }
-  
-  h2 {
-    text-align: center;
-    margin-bottom: 20px;
+  50% {
+    transform: scale(1.05);
   }
-  
-  form {
-    display: flex;
-    flex-direction: column;
+  100% {
+    transform: scale(1);
   }
-  
-  input {
-    margin-bottom: 10px;
-    padding: 8px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-  }
-  
-  button {
-    background-color: #f5a835;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
-    transition: background-color 0.3s ease;
-    animation: pulsar 1s initial;
-  }
-  
-  @keyframes pulsar {
-    0% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.1);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
-  
+}
+
+button{
+  border: 1px solid #a46b40d7;
+  padding: 10px;
+  background-color: #FFA500; /* Un color más cálido para los botones */
+  color: #ffffff;
+}

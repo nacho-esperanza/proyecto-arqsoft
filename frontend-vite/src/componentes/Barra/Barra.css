@@ -1,16 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap');
+
+
 .NaveBa {
-  height: 50px;
-  background-color: #5086cc6c;
+  height: 60px;
+  background-color: #ffffff; /* Warmer color */
   display: flex;
   justify-content: center;
-}
-
-h1 {
-  color: aliceblue;
-  letter-spacing: 2px;
-  font-size: 45px;
-  text-align: center;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  font-family: 'Playfair Display', serif; /* Fuente más elegante para los títulos */
+  margin-bottom: 15px;
+  padding-bottom: 15px;
 }
 
 .NaveC {
@@ -20,12 +19,13 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20px; /* Agregado para agregar espacio en los extremos */
+  padding: 0 20px;
 }
 
 .logo {
-  font-weight: 500;
+  font-weight: 700;
   color: #ffffff;
+  cursor: pointer;
 }
 
 .NaveIt {
@@ -33,17 +33,66 @@ h1 {
   align-items: center;
 }
 
-h3 {
-  margin-right: 10px; /* Agregado para separar el texto del botón */
+h1{
+ 
+  color: #503922;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  font-size: 55px;
+
 }
 
+h3 {
+  color: #503922;
+  font-size: 2rem;
+  transition: color 0.2s;
+}
+
+
+
 .NaveBo {
-  background-color: #f5a835;
+  background-color: #ffc107; /* Orange color */
   border: none;
-  color: white;
-  padding: 10px 20px;
-  margin: 10px 10px 10px 10px;
+  color: #ffffff;
+  padding: 8px 16px;
   border-radius: 5px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
-  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s;
+  cursor: pointer;
+  border: 1px solid #a46b40d7;
+    padding: 10px;
+    background-color: #faaa16; /* Un color más cálido para los botones */
+    color: #ffffff;
+}
+
+.NaveBo:hover {
+  background-color: #ffb300; /* Lighter orange color on hover */
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .NaveC {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  h1 {
+    margin-bottom: 10px;
+  }
+
+  .NaveIt {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  h3 {
+    margin: 5px;
+  }
+
+  button{
+    border: 1px solid #a46b40d7;
+    padding: 10px;
+    background-color: #faaa16; /* Un color más cálido para los botones */
+    color: #ffffff;
+  }
 }

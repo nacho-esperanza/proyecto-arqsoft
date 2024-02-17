@@ -46,17 +46,17 @@ const Home = () => {
 
   return (
     <div className="Planas">
-      <Barra />
-
+      <br/>
+      <br/>
+      <br/>
+      <br/>
       <div className="hoteles">
+       
         {hotels.map((hotel, index) => (
           <div key={index}>
             <div className="titulo">
-              <h2>{hotel.name}</h2>
-            </div>
-            <div className="descripcion">
-              <p>{hotel.description}</p>
-            </div>
+              <h3>{hotel.name}</h3>
+            
             <div className="imagen">
               <Carousel showThumbs={false}>
                 {images
@@ -67,12 +67,16 @@ const Home = () => {
                     </div>
                   ))}
               </Carousel>
+              </div>
+            <div className="descripcion">
+              <p>{hotel.description}</p>
+            </div>
             </div>
             <div className='precio'>
-              <h3>Precio por noche: <h2>US$ {hotel.price}</h2></h3>
+              <h3>Precio por noche:     US$ {hotel.price}</h3>
             </div>
-            <div className="boton">
-            <button  onClick={() => window.location.href = `/hotel/${hotel.id}`}>Ver Hotel</button>
+            <div>
+            <button  className="boton"onClick={() => window.location.href = `/hotel/${hotel.id}`}>Ver Hotel</button>
             </div>
           </div>
         ))}
